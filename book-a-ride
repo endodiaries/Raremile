@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Ride | Rare Miles Autos &amp; Logistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson:#bf2c42;
+  --crimson-dark:#8a1e2f;
+  --gold:#c9a84c;
+  --obsidian:#070707;
+  --charcoal:#0f0f0f;
+  --card:#141414;
+  --border:rgba(255,255,255,.075);
+  --border-red:rgba(191,44,66,.36);
+  --text:#f2f2f2;
+  --muted:#9a9a9a;
+  --dim:#555;
+  --nav-h:82px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--obsidian);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(191,44,66,.16), transparent 34%),
+    radial-gradient(circle at 18% 82%, rgba(201,168,76,.08), transparent 31%),
+    linear-gradient(90deg, rgba(255,255,255,.024) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.017) 1px, transparent 1px);
+  background-size:auto, auto, 52px 52px, 52px 52px;
+  opacity:.72;
+  z-index:-2;
+}
+a { color:inherit; }
+nav {
+  position:fixed;
+  inset:0 0 auto;
+  height:var(--nav-h);
+  padding:0 5%;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(7,7,7,.82);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo img {
+  height:54px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 0 10px rgba(191,44,66,.22));
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:34px;
+  list-style:none;
+}
+.nav-links a {
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(240,240,240,.62);
+  text-decoration:none;
+  position:relative;
+  transition:color .3s;
+  white-space:nowrap;
+}
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:1px;
+  background:var(--crimson);
+  transition:width .32s ease;
+}
+.nav-links a:hover,
+.nav-links .active { color:#fff; }
+.nav-links a:hover::after,
+.nav-links .active::after { width:100%; }
+.nav-cta {
+  background:var(--crimson) !important;
+  color:#fff !important;
+  padding:10px 24px;
+  border-radius:1px;
+}
+.nav-cta::after { display:none !important; }
+.mobile-menu-trigger {
+  display:none;
+  width:32px;
+  height:26px;
+  border:0;
+  background:transparent;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  cursor:pointer;
+}
+.mobile-menu-trigger span {
+  display:block;
+  width:30px;
+  height:2.5px;
+  border-radius:999px;
+  background:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,.72);
+  transition:transform .25s ease, opacity .25s ease;
+}
+.mobile-menu-trigger.open span:nth-child(1) { transform:translateY(8.5px) rotate(45deg); }
+.mobile-menu-trigger.open span:nth-child(2) { opacity:0; }
+.mobile-menu-trigger.open span:nth-child(3) { transform:translateY(-8.5px) rotate(-45deg); }
+.mob-menu {
+  display:none;
+  position:fixed;
+  top:var(--nav-h);
+  left:0;
+  right:0;
+  z-index:45;
+  padding:8px 5% 24px;
+  background:rgba(7,7,7,.98);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(18px);
+}
+.mob-menu.open { display:block; }
+.mob-menu a {
+  display:block;
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.2em;
+  color:rgba(242,242,242,.72);
+}
+.mob-menu a:last-child {
+  margin-top:14px;
+  padding:15px;
+  text-align:center;
+  border:0;
+  background:var(--crimson);
+  color:#fff;
+}
+.ride-hero {
+  min-height:560px;
+  padding:145px 5% 88px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.ride-hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(105deg, rgba(7,7,7,.98), rgba(7,7,7,.78) 48%, rgba(7,7,7,.35)),
+    radial-gradient(ellipse at 80% 55%, rgba(191,44,66,.28), transparent 48%);
+  z-index:-1;
+}
+.eyebrow {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:30px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.38em;
+}
+.eyebrow::before {
+  content:'';
+  width:38px;
+  height:1px;
+  background:var(--crimson);
+  flex-shrink:0;
+}
+h1 {
+  max-width:680px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,6.2vw,94px);
+  font-weight:700;
+  line-height:.92;
+  letter-spacing:-.045em;
+  margin-bottom:28px;
+  text-shadow:0 18px 44px rgba(0,0,0,.72);
+}
+h1 span {
+  display:block;
+  color:var(--crimson);
+  font-style:italic;
+  margin-top:.08em;
+}
+.hero-copy p {
+  max-width:470px;
+  color:rgba(240,240,240,.72);
+  font-size:13px;
+  font-weight:300;
+  line-height:1.9;
+  letter-spacing:.06em;
+}
+.hero-stats {
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:1px;
+  max-width:780px;
+  margin-top:44px;
+  border:1px solid var(--border);
+  background:var(--border);
+}
+.hero-stat {
+  padding:22px 24px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+    rgba(10,10,10,.7);
+}
+.hero-stat strong {
+  display:block;
+  font-family:'Playfair Display',serif;
+  color:var(--crimson);
+  font-size:32px;
+  line-height:1;
+}
+.hero-stat span {
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+section {
+  padding:100px 5%;
+  border-top:1px solid var(--border);
+}
+.inner {
+  max-width:1280px;
+  margin:0 auto;
+}
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:34px;
+  margin-bottom:46px;
+}
+.section-label {
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.38em;
+  margin-bottom:18px;
+}
+h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,72px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.section-head p {
+  max-width:390px;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:300;
+  line-height:1.9;
+}
+.vehicle-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.vehicle-card {
+  border:1px solid var(--border);
+  background:linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014));
+  overflow:hidden;
+  transition:border-color .3s, transform .32s, box-shadow .32s;
+}
+.vehicle-card:hover {
+  border-color:var(--border-red);
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(0,0,0,.58);
+}
+.vehicle-image {
+  min-height:300px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(ellipse at 50% 66%, rgba(191,44,66,.22), transparent 62%),
+    linear-gradient(125deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+}
+.vehicle-image::before {
+  content:'Dummy image';
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:2;
+  background:var(--crimson);
+  color:#fff;
+  text-transform:uppercase;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.24em;
+  padding:6px 12px;
+}
+.vehicle-image img {
+  width:96%;
+  max-height:270px;
+  object-fit:contain;
+  filter:drop-shadow(0 28px 28px rgba(0,0,0,.72));
+}
+.vehicle-body {
+  padding:30px;
+}
+.vehicle-kicker {
+  color:var(--dim);
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.28em;
+  margin-bottom:10px;
+}
+.vehicle-body h3 {
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  line-height:1;
+  margin-bottom:16px;
+}
+.vehicle-body p {
+  color:var(--muted);
+  font-size:13px;
+  font-weight:300;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+.spec-row {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  margin-bottom:24px;
+}
+.spec {
+  padding:16px 10px;
+  border-right:1px solid var(--border);
+}
+.spec:last-child { border-right:0; }
+.spec strong {
+  display:block;
+  color:var(--crimson);
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  line-height:1;
+}
+.spec span {
+  display:block;
+  margin-top:7px;
+  color:var(--dim);
+  text-transform:uppercase;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.18em;
+}
+.card-action {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:48px;
+  border:1px solid var(--border-red);
+  background:transparent;
+  color:var(--crimson);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.22em;
+  cursor:pointer;
+  transition:background .3s, color .3s, border-color .3s;
+}
+.card-action:hover {
+  background:rgba(191,44,66,.14);
+  color:#fff;
+  border-color:var(--crimson);
+}
+.booking-shell {
+  display:grid;
+  grid-template-columns:.82fr 1.18fr;
+  gap:34px;
+  align-items:start;
+  padding:36px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+    radial-gradient(circle at 92% 0%, rgba(191,44,66,.18), transparent 34%);
+}
+.booking-copy {
+  padding-right:34px;
+  border-right:1px solid var(--border);
+}
+.booking-copy h3 {
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  line-height:1.08;
+  margin-bottom:16px;
+}
+.booking-copy p,
+.booking-copy li {
+  color:var(--muted);
+  font-size:13px;
+  font-weight:300;
+  line-height:1.9;
+}
+.booking-copy ul {
+  list-style:none;
+  margin-top:24px;
+}
+.booking-copy li {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-bottom:11px;
+  text-transform:uppercase;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.16em;
+}
+.booking-copy li::before {
+  content:'';
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--crimson);
+  box-shadow:0 0 16px rgba(191,44,66,.6);
+  flex-shrink:0;
+}
+.booking-form {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.field { display:flex; flex-direction:column; gap:8px; }
+.field.full { grid-column:1/-1; }
+label {
+  color:var(--dim);
+  text-transform:uppercase;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.22em;
+}
+input,select,textarea {
+  width:100%;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.035);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  font-size:13px;
+  padding:14px 15px;
+  border-radius:1px;
+  outline:none;
+}
+textarea { min-height:96px; resize:vertical; }
+input:focus,select:focus,textarea:focus {
+  border-color:var(--border-red);
+  box-shadow:0 0 0 3px rgba(191,44,66,.1);
+}
+select option { background:#111; color:#fff; }
+.booking-total {
+  grid-column:1/-1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 0 4px;
+  border-top:1px solid var(--border);
+  margin-top:4px;
+}
+.booking-total span {
+  color:var(--dim);
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.24em;
+}
+.booking-total strong {
+  font-family:'Playfair Display',serif;
+  color:var(--crimson);
+  font-size:32px;
+  line-height:1;
+}
+.pay-btn {
+  grid-column:1/-1;
+  min-height:54px;
+  border:0;
+  background:var(--crimson);
+  color:#fff;
+  font-family:'Montserrat',sans-serif;
+  text-transform:uppercase;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.24em;
+  cursor:pointer;
+  transition:background .3s, transform .25s, box-shadow .3s;
+}
+.pay-btn:hover {
+  background:var(--crimson-dark);
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(191,44,66,.38);
+}
+.pay-note {
+  grid-column:1/-1;
+  color:var(--dim);
+  font-size:11px;
+  line-height:1.7;
+}
+.success-modal {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(14px);
+}
+.success-modal.open { display:flex; }
+.success-card {
+  max-width:460px;
+  width:100%;
+  padding:38px;
+  border:1px solid var(--border-red);
+  background:linear-gradient(145deg, #101010, #080808);
+}
+.success-card h3 {
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  margin-bottom:14px;
+}
+.success-card p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+  margin-bottom:24px;
+}
+.success-actions {
+  display:grid;
+  gap:12px;
+}
+.wa-btn,
+.modal-close {
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family:'Montserrat',sans-serif;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.22em;
+  cursor:pointer;
+}
+.wa-btn { background:var(--crimson); color:#fff; }
+.modal-close {
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+}
+footer {
+  background:var(--charcoal);
+  border-top:1px solid var(--border);
+  padding:68px 5% 36px;
+}
+.ft-inner { max-width:1280px; margin:0 auto; }
+.ft-grid {
+  display:grid;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:56px;
+  margin-bottom:52px;
+}
+.ft-brand img {
+  height:52px;
+  width:auto;
+  margin-bottom:20px;
+  object-fit:contain;
+  display:block;
+}
+.ft-brand p {
+  font-size:12.5px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:24px;
+  max-width:260px;
+}
+.ft-social { display:flex; gap:10px; }
+.ft-soc {
+  width:34px;
+  height:34px;
+  border:1px solid var(--border);
+  border-radius:2px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  text-decoration:none;
+}
+.ft-col h5 {
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--text);
+  margin-bottom:20px;
+}
+.ft-col ul { list-style:none; }
+.ft-col li { margin-bottom:10px; }
+.ft-col a {
+  font-size:12.5px;
+  font-weight:300;
+  color:var(--muted);
+  text-decoration:none;
+}
+.ct-row {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:13px;
+}
+.ct-row svg {
+  width:13px;
+  height:13px;
+  color:var(--crimson);
+  flex-shrink:0;
+  margin-top:3px;
+}
+.ct-row span {
+  font-size:12.5px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.6;
+}
+.ft-bottom {
+  padding-top:28px;
+  border-top:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.ft-bottom p {
+  font-size:10px;
+  font-weight:300;
+  color:var(--dim);
+  letter-spacing:.05em;
+}
+.ft-bottom a {
+  color:var(--crimson);
+  text-decoration:none;
+}
+@media(max-width:980px) {
+  .nav-links { display:none; }
+  .mobile-menu-trigger { display:flex; }
+  .ride-hero {
+    padding:118px 5% 68px;
+  }
+  .section-head {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .vehicle-grid,
+  .booking-shell {
+    grid-template-columns:1fr;
+  }
+  .booking-copy {
+    padding-right:0;
+    padding-bottom:28px;
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+  .ft-grid { grid-template-columns:1fr 1fr; gap:44px; }
+}
+@media(max-width:560px) {
+  :root { --nav-h:76px; }
+  nav {
+    width:100vw;
+    padding:0 6%;
+  }
+  .nav-logo img { height:54px; }
+  .mobile-menu-trigger {
+    flex-shrink:0;
+    margin-left:auto;
+  }
+  .ride-hero {
+    max-width:100vw;
+    min-height:auto;
+    padding:104px 6% 64px;
+  }
+  h1 { font-size:clamp(38px,14vw,58px); }
+  .hero-copy p { font-size:12px; }
+  .hero-stats {
+    grid-template-columns:1fr;
+    margin-top:34px;
+  }
+  .hero-stat {
+    padding:18px 20px;
+  }
+  section { padding:76px 6%; }
+  .vehicle-image { min-height:230px; }
+  .vehicle-body { padding:24px; }
+  .spec-row { grid-template-columns:1fr; }
+  .spec {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+  .spec:last-child { border-bottom:0; }
+  .booking-shell { padding:24px; }
+  .booking-form { grid-template-columns:1fr; }
+  .booking-total {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  footer { padding:58px 6% 34px; }
+  .ft-grid { grid-template-columns:1fr; gap:36px; }
+  .ft-bottom {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html#home" class="nav-logo" aria-label="Rare Miles home">
+    <img src="assets/rm-logo-wide.png" alt="Rare Miles Autos & Logistics">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="book-a-ride.html" class="active">Book a Ride</a></li>
+    <li><a href="index.html#membership">Membership</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html#home">Home</a>
+  <a href="about.html">About</a>
+  <a href="book-a-ride.html">Book a Ride</a>
+  <a href="index.html#membership">Membership</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="#booking">Book Now</a>
+</div>
+
+<main>
+  <section class="ride-hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Rare Miles Reservations</div>
+      <h1>Book the ride <span>before the arrival.</span></h1>
+      <p>Reserve a chauffeured Rare Miles experience for selected Victoria Island and Ikoyi destinations. Pick a vehicle, choose a one-way or return transfer, then complete payment securely through Paystack.</p>
+      <div class="hero-stats" aria-label="Rare Miles booking highlights">
+        <div class="hero-stat">
+        <strong>2</strong>
+          <span>Cars available</span>
+        </div>
+        <div class="hero-stat">
+          <strong>VI + Ikoyi</strong>
+          <span>Coverage area</span>
+        </div>
+        <div class="hero-stat">
+          <strong>₦100k</strong>
+          <span>Starting / trip</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fleet">
+    <div class="inner">
+      <div class="section-head">
+        <div>
+          <div class="section-label">Select Your Car</div>
+          <h2>Two ways to arrive with presence.</h2>
+        </div>
+        <p>These are temporary dummy visuals. When you send the final car images, we can swap them without changing the booking structure.</p>
+      </div>
+      <div class="vehicle-grid">
+        <article class="vehicle-card">
+          <div class="vehicle-image">
+            <img src="assets/rm1-gwagon-transparent.png" alt="Mercedes-Benz G-Wagon placeholder">
+          </div>
+          <div class="vehicle-body">
+            <div class="vehicle-kicker">Flagship SUV</div>
+            <h3>Mercedes-Benz G-Wagon</h3>
+            <p>Commanding, private, and unmistakable. Ideal for guest arrivals, premium dinners, and luxury Lagos movements.</p>
+            <div class="spec-row">
+              <div class="spec"><strong>5</strong><span>Seats</span></div>
+              <div class="spec"><strong>VI + Ikoyi</strong><span>Coverage</span></div>
+              <div class="spec"><strong>24/7</strong><span>Support</span></div>
+            </div>
+            <button class="card-action" type="button" data-vehicle="Mercedes-Benz G-Wagon">Choose G-Wagon</button>
+          </div>
+        </article>
+        <article class="vehicle-card">
+          <div class="vehicle-image">
+            <img src="assets/about-mercedes-cutout-cropped.png" alt="Mercedes-Benz GLE placeholder">
+          </div>
+          <div class="vehicle-body">
+            <div class="vehicle-kicker">Second Vehicle</div>
+            <h3>Mercedes-Benz GLE</h3>
+            <p>A refined premium option for calm city transfers, private outings, and polished arrival moments.</p>
+            <div class="spec-row">
+              <div class="spec"><strong>5</strong><span>Seats</span></div>
+              <div class="spec"><strong>VI + Ikoyi</strong><span>Coverage</span></div>
+              <div class="spec"><strong>VIP</strong><span>Service</span></div>
+            </div>
+            <button class="card-action" type="button" data-vehicle="Mercedes-Benz GLE">Choose GLE</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="inner">
+      <div class="booking-shell">
+        <div class="booking-copy">
+          <div class="section-label">Reserve Online</div>
+          <h3>Trip-based pricing for selected Lagos destinations.</h3>
+          <p>The current model charges by trip package, not hourly rental. Payment starts the reservation, then the concierge confirms dispatch details on WhatsApp.</p>
+          <ul>
+            <li>One Way: ₦100,000</li>
+            <li>Return Transfer: ₦200,000</li>
+            <li>Coverage: Victoria Island &amp; Ikoyi</li>
+          </ul>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <div class="field">
+            <label for="guestName">Full Name</label>
+            <input id="guestName" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="guestPhone">Phone / WhatsApp</label>
+            <input id="guestPhone" name="phone" type="tel" placeholder="+234..." required>
+          </div>
+          <div class="field">
+            <label for="guestEmail">Email</label>
+            <input id="guestEmail" name="email" type="email" placeholder="you@email.com" required>
+          </div>
+          <div class="field">
+            <label for="vehicleSelect">Vehicle</label>
+            <select id="vehicleSelect" name="vehicle" required>
+              <option value="Mercedes-Benz G-Wagon">Mercedes-Benz G-Wagon</option>
+              <option value="Mercedes-Benz GLE">Mercedes-Benz GLE</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tripPackage">Trip Package</label>
+            <select id="tripPackage" name="package" required>
+              <option value="100000" data-name="One Way">One Way - ₦100,000</option>
+              <option value="200000" data-name="Return Transfer">Return Transfer - ₦200,000</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="tripDestination">Destination</label>
+            <select id="tripDestination" name="destination" required>
+              <option value="FOMO, Victoria Island">FOMO - VI</option>
+              <option value="Boho, Victoria Island">Boho - VI</option>
+              <option value="The Smiths, Victoria Island">The Smiths - VI</option>
+              <option value="Zaza, Victoria Island">Zaza - VI</option>
+              <option value="Lulu's, Victoria Island">Lulu's - VI</option>
+              <option value="The Library, Victoria Island">The Library - VI</option>
+              <option value="The Garden, Ikoyi">The Garden - Ikoyi</option>
+              <option value="Mako, Ikoyi">Mako - Ikoyi</option>
+              <option value="Ikoyi Boat Club, Ikoyi">Ikoyi Boat Club - Ikoyi</option>
+              <option value="Jet Ski Club, Ikoyi">Jet Ski Club - Ikoyi</option>
+              <option value="Pitstop, Ikoyi">Pitstop - Ikoyi</option>
+              <option value="Phoenix, Ikoyi">Phoenix - Ikoyi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pickupTime">Pickup Date & Time</label>
+            <input id="pickupTime" name="pickup" type="datetime-local" required>
+          </div>
+          <div class="field full">
+            <label for="tripNote">Special Request</label>
+            <textarea id="tripNote" name="note" placeholder="Pickup address, guest count, or concierge note"></textarea>
+          </div>
+          <div class="booking-total">
+            <span>Payment Due</span>
+            <strong id="bookingTotal">₦100,000</strong>
+          </div>
+          <button type="submit" class="pay-btn">Pay & Reserve</button>
+          <p class="pay-note">Replace <strong>YOUR_PAYSTACK_PUBLIC_KEY</strong> in the script with the live Paystack public key before publishing.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <img src="assets/rm-logo-wide.png" alt="Rare Miles">
+        <p>Lagos' premium chauffeur-led G-Wagon trip experience, paired with bespoke automotive maintenance.</p>
+        <div class="ft-social">
+          <a href="#" class="ft-soc" aria-label="Instagram"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/2349078771256" target="_blank" class="ft-soc" aria-label="WhatsApp"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/></svg></a>
+          <a href="#" class="ft-soc" aria-label="X"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="book-a-ride.html">Book a Ride</a></li>
+          <li><a href="index.html#membership">Membership</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#booking">One-Way Trip</a></li>
+          <li><a href="#booking">Return Transfer</a></li>
+          <li><a href="services.html">Maintenance</a></li>
+          <li><a href="index.html#membership">Membership Plans</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.06-6.06A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>09078771256</span></div>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>hello@raremiles.com</span></div>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lagos, Nigeria</span></div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2026 Rare Miles Autos &amp; Logistics. All rights reserved.</p>
+      <p>Built with <a href="#">excellence</a> in Lagos.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="success-card">
+    <h3 id="successTitle">Reservation Started.</h3>
+    <p>Your payment was successful. Continue to WhatsApp so the Rare Miles concierge can confirm pickup details and dispatch.</p>
+    <div class="success-actions">
+      <a href="https://wa.me/2349078771256" target="_blank" class="wa-btn" id="whatsappRedirect">Continue on WhatsApp</a>
+      <button type="button" class="modal-close" id="modalClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+const trigger = document.getElementById('mobileMenuTrigger');
+const menu = document.getElementById('mob');
+trigger.addEventListener('click', () => {
+  trigger.classList.toggle('open');
+  menu.classList.toggle('open');
+});
+menu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    trigger.classList.remove('open');
+    menu.classList.remove('open');
+  });
+});
+
+const PAYSTACK_PUBLIC_KEY = 'YOUR_PAYSTACK_PUBLIC_KEY';
+const conciergeWhatsApp = '2349078771256';
+const bookingForm = document.getElementById('bookingForm');
+const vehicleSelect = document.getElementById('vehicleSelect');
+const packageSelect = document.getElementById('tripPackage');
+const bookingTotal = document.getElementById('bookingTotal');
+const successModal = document.getElementById('successModal');
+const whatsappRedirect = document.getElementById('whatsappRedirect');
+const modalClose = document.getElementById('modalClose');
+const naira = new Intl.NumberFormat('en-NG', { style:'currency', currency:'NGN', maximumFractionDigits:0 });
+
+function selectedPackageName() {
+  return packageSelect.options[packageSelect.selectedIndex].dataset.name;
+}
+function updateBookingTotal() {
+  bookingTotal.textContent = naira.format(Number(packageSelect.value));
+}
+function buildWhatsAppUrl(reference) {
+  const msg = [
+    'Hello Rare Miles, I just paid for a car reservation.',
+    `Name: ${document.getElementById('guestName').value}`,
+    `Phone: ${document.getElementById('guestPhone').value}`,
+    `Vehicle: ${vehicleSelect.value}`,
+    `Package: ${selectedPackageName()} (${bookingTotal.textContent})`,
+    `Destination: ${document.getElementById('tripDestination').value}`,
+    `Pickup: ${document.getElementById('pickupTime').value}`,
+    `Reference: ${reference}`
+  ].join('\n');
+  return `https://wa.me/${conciergeWhatsApp}?text=${encodeURIComponent(msg)}`;
+}
+
+document.querySelectorAll('[data-vehicle]').forEach(button => {
+  button.addEventListener('click', () => {
+    vehicleSelect.value = button.dataset.vehicle;
+    document.getElementById('booking').scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+});
+packageSelect.addEventListener('change', updateBookingTotal);
+updateBookingTotal();
+
+bookingForm.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!bookingForm.reportValidity()) return;
+  if (!window.PaystackPop || PAYSTACK_PUBLIC_KEY === 'YOUR_PAYSTACK_PUBLIC_KEY') {
+    alert('Paystack is ready to connect. Please add the live Paystack public key before accepting payments.');
+    return;
+  }
+  const handler = PaystackPop.setup({
+    key: PAYSTACK_PUBLIC_KEY,
+    email: document.getElementById('guestEmail').value,
+    amount: Number(packageSelect.value) * 100,
+    currency: 'NGN',
+    ref: `RM-${Date.now()}`,
+    metadata: {
+      custom_fields: [
+        { display_name:'Customer Name', variable_name:'customer_name', value:document.getElementById('guestName').value },
+        { display_name:'Phone', variable_name:'phone', value:document.getElementById('guestPhone').value },
+        { display_name:'Vehicle', variable_name:'vehicle', value:vehicleSelect.value },
+        { display_name:'Trip Package', variable_name:'trip_package', value:selectedPackageName() },
+        { display_name:'Destination', variable_name:'destination', value:document.getElementById('tripDestination').value }
+      ]
+    },
+    callback(response) {
+      whatsappRedirect.href = buildWhatsAppUrl(response.reference);
+      successModal.classList.add('open');
+    },
+    onClose() {}
+  });
+  handler.openIframe();
+});
+modalClose.addEventListener('click', () => successModal.classList.remove('open'));
+</script>
+</body>
+</html>
