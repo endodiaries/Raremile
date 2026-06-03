@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Rare Miles Autos &amp; Logistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson:#bf2c42;
+  --crimson-dark:#8a1e2f;
+  --gold:#c9a84c;
+  --obsidian:#070707;
+  --charcoal:#0f0f0f;
+  --card:#141414;
+  --border:rgba(255,255,255,.075);
+  --border-red:rgba(191,44,66,.36);
+  --text:#f2f2f2;
+  --muted:#9a9a9a;
+  --dim:#555;
+  --nav-h:82px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--obsidian);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 74% 22%, rgba(191,44,66,.14), transparent 34%),
+    radial-gradient(circle at 18% 72%, rgba(201,168,76,.08), transparent 30%),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size:auto, auto, 52px 52px, 52px 52px;
+  opacity:.75;
+  z-index:-2;
+}
+a { color:inherit; }
+nav {
+  position:fixed;
+  inset:0 0 auto;
+  height:var(--nav-h);
+  padding:0 5%;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(7,7,7,.78);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo img {
+  height:54px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 0 10px rgba(191,44,66,.22));
+  transition:filter .3s;
+}
+.nav-logo img:hover { filter:drop-shadow(0 0 20px rgba(191,44,66,.55)); }
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:34px;
+  list-style:none;
+}
+.nav-links a {
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(240,240,240,.6);
+  text-decoration:none;
+  position:relative;
+  transition:color .3s;
+  white-space:nowrap;
+}
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:1px;
+  background:var(--crimson);
+  transition:width .32s ease;
+}
+.nav-links a:hover,
+.nav-links .active { color:#fff; }
+.nav-links a:hover::after,
+.nav-links .active::after { width:100%; }
+.nav-cta {
+  background:var(--crimson) !important;
+  color:#fff !important;
+  padding:10px 24px;
+  border-radius:1px;
+  transition:background .3s, box-shadow .3s !important;
+  letter-spacing:.2em !important;
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--crimson-dark) !important; box-shadow:0 4px 18px rgba(191,44,66,.4) !important; color:#fff !important; }
+.mobile-menu-trigger {
+  display:none;
+  width:32px;
+  height:26px;
+  border:0;
+  background:transparent;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  cursor:pointer;
+}
+.mobile-menu-trigger span {
+  display:block;
+  width:30px;
+  height:2.5px;
+  border-radius:999px;
+  background:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,.72);
+  transition:transform .25s ease, opacity .25s ease;
+}
+.mobile-menu-trigger.open span:nth-child(1) { transform:translateY(8.5px) rotate(45deg); }
+.mobile-menu-trigger.open span:nth-child(2) { opacity:0; }
+.mobile-menu-trigger.open span:nth-child(3) { transform:translateY(-8.5px) rotate(-45deg); }
+.mob-menu {
+  display:none;
+  position:fixed;
+  top:var(--nav-h);
+  left:0;
+  right:0;
+  z-index:45;
+  padding:8px 5% 24px;
+  background:rgba(7,7,7,.98);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(18px);
+}
+.mob-menu.open { display:block; }
+.mob-menu a {
+  display:block;
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.2em;
+  color:rgba(242,242,242,.72);
+}
+.mob-menu a:last-child {
+  margin-top:14px;
+  padding:15px;
+  text-align:center;
+  border:0;
+  background:var(--crimson);
+  color:#fff;
+}
+.page-hero {
+  min-height:clamp(680px,82svh,780px);
+  padding:124px 5% 52px;
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(360px, .82fr);
+  gap:56px;
+  align-items:center;
+  overflow:hidden;
+}
+.page-hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(105deg, rgba(7,7,7,.98) 0%, rgba(7,7,7,.86) 42%, rgba(7,7,7,.38) 100%),
+    radial-gradient(ellipse at 76% 58%, rgba(191,44,66,.24), transparent 44%);
+  z-index:-1;
+}
+.hero-copy { max-width:760px; }
+.eyebrow {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:30px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:9.5px;
+  font-weight:600;
+  letter-spacing:.38em;
+}
+.eyebrow::before {
+  content:'';
+  width:36px;
+  height:1px;
+  background:var(--crimson);
+  flex-shrink:0;
+}
+h1 {
+  max-width:560px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px, 4.9vw, 70px);
+  font-weight:700;
+  line-height:.9;
+  letter-spacing:-.03em;
+  margin-bottom:32px;
+  opacity:1;
+  animation:none;
+  text-shadow:0 18px 44px rgba(0,0,0,.72);
+}
+h1 span {
+  display:block;
+  color:var(--crimson);
+  font-style:italic;
+  white-space:nowrap;
+}
+.lead {
+  font-size:13px;
+  font-weight:300;
+  color:rgba(240,240,240,.72);
+  letter-spacing:.07em;
+  line-height:1.85;
+  max-width:400px;
+  margin-bottom:50px;
+  opacity:1;
+  animation:none;
+}
+.hero-actions {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:0;
+  opacity:1;
+  animation:none;
+}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  justify-content:center;
+  font-family:'Montserrat',sans-serif;
+  text-decoration:none;
+  text-transform:uppercase;
+  border-radius:1px;
+  cursor:pointer;
+  transition:background .3s, transform .25s, box-shadow .32s, border-color .3s, color .3s;
+}
+.btn-primary {
+  background:var(--crimson);
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.26em;
+  padding:17px 40px;
+  border:none;
+  position:relative;
+  overflow:hidden;
+}
+.btn-secondary {
+  background:transparent;
+  color:rgba(240,240,240,.78);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.22em;
+  padding:16px 36px;
+  border:1px solid rgba(255,255,255,.22);
+}
+.btn-primary:hover { background:var(--crimson-dark); transform:translateY(-3px); box-shadow:0 14px 40px rgba(191,44,66,.48); }
+.btn-secondary:hover { border-color:rgba(255,255,255,.48); color:#fff; background:rgba(255,255,255,.05); transform:translateY(-3px); }
+.hero-visual {
+  position:relative;
+  min-height:520px;
+  padding-top:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-orbit {
+  position:absolute;
+  width:min(52vw,620px);
+  aspect-ratio:1;
+  border:1px solid rgba(201,168,76,.23);
+  border-radius:50%;
+  transform:rotateX(67deg);
+  filter:drop-shadow(0 0 26px rgba(191,44,66,.12));
+}
+.hero-orbit::after {
+  content:'';
+  position:absolute;
+  inset:16%;
+  border:1px solid rgba(191,44,66,.22);
+  border-radius:50%;
+}
+.hero-visual .hero-orbit,
+.hero-visual .hero-badge { display:none; }
+.hero-car {
+  position:relative;
+  width:min(60vw,820px);
+  max-width:none;
+  display:block;
+  transform:translateX(-4%);
+  filter:drop-shadow(0 38px 36px rgba(0,0,0,.72)) saturate(.9) contrast(1.08);
+}
+.hero-badge {
+  position:absolute;
+  right:4%;
+  bottom:9%;
+  width:170px;
+  padding:20px;
+  border:1px solid var(--border-red);
+  background:rgba(12,12,12,.72);
+  backdrop-filter:blur(16px);
+}
+.hero-badge strong {
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  color:var(--crimson);
+  line-height:1;
+}
+.hero-badge span {
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+section {
+  padding:110px 5%;
+  border-top:1px solid var(--border);
+}
+.inner {
+  max-width:1280px;
+  margin:0 auto;
+}
+.split {
+  display:grid;
+  grid-template-columns:.82fr 1fr;
+  gap:84px;
+  align-items:start;
+}
+.section-label {
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.38em;
+  margin-bottom:22px;
+}
+h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,72px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+.story-text p {
+  color:var(--muted);
+  font-size:14px;
+  font-weight:300;
+  line-height:2.05;
+  margin-bottom:20px;
+}
+.proof-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.proof {
+  padding:34px 28px;
+  border-right:1px solid var(--border);
+}
+.proof:last-child { border-right:0; }
+.proof strong {
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  color:var(--crimson);
+  line-height:1;
+  margin-bottom:8px;
+}
+.proof span {
+  color:var(--dim);
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.24em;
+}
+.values-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:48px;
+}
+.value-card {
+  min-height:230px;
+  padding:34px;
+  background:linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+  border:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.value-card::before {
+  content:'';
+  position:absolute;
+  inset:auto 0 0;
+  height:2px;
+  background:linear-gradient(90deg, var(--crimson), transparent);
+}
+.value-card .num {
+  color:var(--crimson);
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  margin-bottom:34px;
+}
+.value-card h3 {
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:.25em;
+  margin-bottom:16px;
+}
+.value-card p {
+  color:var(--muted);
+  font-size:13px;
+  font-weight:300;
+  line-height:1.85;
+}
+.cta {
+  margin:0 5% 92px;
+  padding:74px 6%;
+  border:1px solid var(--border-red);
+  background:
+    linear-gradient(110deg, rgba(7,7,7,.94), rgba(14,14,14,.86)),
+    radial-gradient(circle at 80% 50%, rgba(191,44,66,.24), transparent 42%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:34px;
+}
+.cta h2 { max-width:640px; }
+.cta p {
+  max-width:430px;
+  color:var(--muted);
+  line-height:1.9;
+  margin-top:16px;
+  font-size:14px;
+}
+footer {
+  border-top:1px solid var(--border);
+  padding:34px 5%;
+  color:var(--dim);
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.footer-inner {
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+@media(max-width:980px) {
+  .nav-links { display:none; }
+  .mobile-menu-trigger { display:flex; }
+  .page-hero {
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:92px 5% 64px;
+    gap:24px;
+  }
+  .hero-visual {
+    min-height:350px;
+    padding-top:0;
+    order:-1;
+    opacity:.72;
+  }
+  .hero-car {
+    width:108vw;
+    transform:translateX(14%);
+  }
+  .hero-orbit { width:92vw; }
+  .hero-badge { display:none; }
+  .split { grid-template-columns:1fr; gap:38px; }
+  .proof-grid { grid-template-columns:1fr 1fr; }
+  .proof:nth-child(2) { border-right:0; }
+  .proof:nth-child(-n+2) { border-bottom:1px solid var(--border); }
+  .values-grid { grid-template-columns:1fr; }
+  .cta { flex-direction:column; align-items:flex-start; }
+}
+@media(max-width:560px) {
+  :root { --nav-h:76px; }
+  nav { padding:0 6%; }
+  .nav-logo img { height:54px; }
+  .page-hero { padding:86px 6% 56px; }
+  .hero-visual {
+    min-height:280px;
+    padding-top:0;
+    margin:0 -6%;
+  }
+  .hero-car {
+    width:130vw;
+    transform:translateX(18%);
+  }
+  .hero-copy { margin-top:-14px; }
+  .eyebrow {
+    font-size:8.5px;
+    letter-spacing:.28em;
+    gap:12px;
+  }
+  .eyebrow::before { width:34px; }
+  h1 { font-size:clamp(34px,9.5vw,48px); }
+  .lead { font-size:12px; max-width:320px; }
+  .hero-actions { flex-direction:column; }
+  .btn { width:100%; }
+  section { padding:72px 6%; }
+  .proof-grid { grid-template-columns:1fr; }
+  .proof { border-right:0; border-bottom:1px solid var(--border); }
+  .proof:last-child { border-bottom:0; }
+  .cta { margin:0 6% 70px; padding:48px 28px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html#home" class="nav-logo" aria-label="Rare Miles home">
+    <img src="assets/rm-logo-wide.png" alt="Rare Miles Autos & Logistics">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#booking">Book a Ride</a></li>
+    <li><a href="index.html#membership">Membership</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html#home">Home</a>
+  <a href="about.html">About</a>
+  <a href="index.html#booking">Book a Ride</a>
+  <a href="index.html#membership">Membership</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#booking">Book Now</a>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="hero-copy">
+      <div class="eyebrow">About Rare Miles</div>
+      <h1>Luxury, measured <span>in rare miles.</span></h1>
+      <p class="lead">Rare Miles Autos &amp; Logistics is a Lagos-based luxury mobility and automotive care brand built for guests who expect precision, privacy, and presence from every journey.</p>
+      <div class="hero-actions">
+        <a href="index.html#booking" class="btn btn-primary">Book Your Trip</a>
+        <a href="index.html#membership" class="btn btn-secondary">Membership</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-orbit"></div>
+      <img src="assets/about-mercedes-cutout-cropped.png" alt="" class="hero-car">
+      <div class="hero-badge">
+        <strong>VI</strong>
+        <span>Ikoyi routes</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner split">
+      <div>
+        <div class="section-label">Our Story</div>
+        <h2>Built for the city’s most intentional arrivals.</h2>
+      </div>
+      <div class="story-text">
+        <p>Rare Miles was created to make premium automotive experiences feel seamless in Nigeria. From chauffeur-led G-Wagon trips to careful vehicle maintenance, every detail is shaped around trust, timing, and presentation.</p>
+        <p>We serve clients who do not just need movement. They need an entrance, a calm handoff, a clean vehicle, a responsive team, and a brand that understands the standard they are protecting.</p>
+        <p>The result is a focused, high-touch experience across luxury rentals, logistics support, memberships, and automotive care.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof-grid">
+    <div class="proof"><strong>2</strong><span>Trip options</span></div>
+    <div class="proof"><strong>24/7</strong><span>Support</span></div>
+    <div class="proof"><strong>3</strong><span>Membership tiers</span></div>
+    <div class="proof"><strong>100%</strong><span>White-glove service</span></div>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="section-label">What Defines Us</div>
+      <h2>Quiet confidence. Sharp execution.</h2>
+      <div class="values-grid">
+        <article class="value-card">
+          <div class="num">01</div>
+          <h3>Presence</h3>
+          <p>Every vehicle, route, and handoff is prepared to feel composed, premium, and unmistakably elevated.</p>
+        </article>
+        <article class="value-card">
+          <div class="num">02</div>
+          <h3>Precision</h3>
+          <p>Transparent trip pricing, responsive coordination, and disciplined timing keep the experience effortless.</p>
+        </article>
+        <article class="value-card">
+          <div class="num">03</div>
+          <h3>Care</h3>
+          <p>Our automotive maintenance approach protects the machines behind the moments, from inspections to mechanic support.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div>
+      <div class="section-label">Move Differently</div>
+      <h2>Book a luxury trip with a team that treats details like the destination.</h2>
+      <p>Reserve a one-way or return G-Wagon transfer, or explore membership plans for preferred access and reduced rental rates.</p>
+    </div>
+    <a href="index.html#booking" class="btn btn-primary">Book Now</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Rare Miles Autos &amp; Logistics. All rights reserved.</p>
+    <p>Lagos, Nigeria</p>
+  </div>
+</footer>
+
+<script>
+const trigger = document.getElementById('mobileMenuTrigger');
+const menu = document.getElementById('mob');
+trigger.addEventListener('click', () => {
+  trigger.classList.toggle('open');
+  menu.classList.toggle('open');
+});
+menu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    trigger.classList.remove('open');
+    menu.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
