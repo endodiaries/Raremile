@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -494,7 +493,9 @@ nav.scrolled { background:rgba(8,8,8,.95); backdrop-filter:blur(22px); border-bo
 .field { display:flex; flex-direction:column; gap:8px; }
 .field.full { grid-column:1/-1; }
 .field label { font-size:8.5px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--text-muted); }
-.field input,.field select,.field textarea { width:100%; background:rgba(0,0,0,.28); border:1px solid var(--border); border-radius:1px; color:var(--text-primary); font-family:'Montserrat',sans-serif; font-size:12px; padding:14px 13px; outline:none; transition:border-color .25s, background .25s; }
+.field input,.field select,.field textarea { width:100%; background:rgba(0,0,0,.28); border:1px solid var(--border); border-radius:1px; color:var(--text-primary); font-family:'Montserrat',sans-serif; font-size:12px; padding:14px 13px; min-height:50px; outline:none; transition:border-color .25s, background .25s; }
+.field select { appearance:none; -webkit-appearance:none; padding-right:46px; line-height:1.35; background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,.9) 50%),linear-gradient(135deg,rgba(255,255,255,.9) 50%,transparent 50%); background-position:calc(100% - 20px) 52%,calc(100% - 14px) 52%; background-size:6px 6px,6px 6px; background-repeat:no-repeat; }
+.field select option { background:#111; color:#fff; }
 .field textarea { min-height:92px; resize:vertical; }
 .field input:focus,.field select:focus,.field textarea:focus { border-color:var(--crimson); background:rgba(0,0,0,.42); }
 .booking-total { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px 0 4px; border-top:1px solid var(--border); margin-top:4px; }
@@ -692,12 +693,12 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
   </a>
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
-    <li><a href="#booking">Book a Ride</a></li>
+    <li><a href="book-a-ride.html">Book a Ride</a></li>
     <li><a href="#membership">Membership</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+    <li><a href="book-a-ride.html#booking" class="nav-cta">Book Now</a></li>
   </ul>
-  <a href="#booking" class="mobile-nav-book">Book</a>
+  <a href="book-a-ride.html#booking" class="mobile-nav-book">Book</a>
   <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -707,10 +708,10 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
 <!-- mobile drawer -->
 <div class="mob-menu" id="mob">
   <a href="about.html" onclick="closeMob()">About</a>
-  <a href="#booking" onclick="closeMob()">Book a Ride</a>
+  <a href="book-a-ride.html" onclick="closeMob()">Book a Ride</a>
   <a href="#membership" onclick="closeMob()">Membership</a>
   <a href="#contact" onclick="closeMob()">Contact</a>
-  <a href="#booking" onclick="closeMob()">Book Now</a>
+  <a href="book-a-ride.html#booking" onclick="closeMob()">Book Now</a>
 </div>
 
 <!-- ═══════════════════ HERO ═══════════════════ -->
@@ -742,7 +743,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
     </h1>
 
     <p class="hero-desc">
-      Chauffeured G-Wagons for VI and Ikoyi trips.<br>
+      Chauffeured G-Wagons for Island and Lekki trips.<br>
       White-glove service for guests who demand extraordinary.
     </p>
 
@@ -760,7 +761,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
     <div class="h-stat"><div class="h-stat-n">2</div><div class="h-stat-l">Trip Options</div></div>
     <div class="h-stat"><div class="h-stat-n">24/7</div><div class="h-stat-l">Support</div></div>
     <div class="h-stat"><div class="h-stat-n">3</div><div class="h-stat-l">Membership Tiers</div></div>
-    <div class="h-stat"><div class="h-stat-n">₦100k</div><div class="h-stat-l">Starting / Trip</div></div>
+    <div class="h-stat"><div class="h-stat-n">₦85k</div><div class="h-stat-l">Starting / Trip</div></div>
   </div>
 </section>
 
@@ -773,14 +774,14 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
     <div class="m-item"><div class="m-dot"></div>Diamond Membership</div>
     <div class="m-item"><div class="m-dot"></div>Automotive Maintenance</div>
     <div class="m-item"><div class="m-dot"></div>White-Glove Service</div>
-    <div class="m-item"><div class="m-dot"></div>One Way ₦100,000 &middot; Return ₦200,000</div>
+    <div class="m-item"><div class="m-dot"></div>One Way ₦85,000 &middot; Return ₦170,000</div>
     <div class="m-item"><div class="m-dot"></div>Mercedes-Benz G-Wagon</div>
     <div class="m-item"><div class="m-dot"></div>Return Transfer</div>
     <div class="m-item"><div class="m-dot"></div>Luxury Trip Booking Lagos</div>
     <div class="m-item"><div class="m-dot"></div>Diamond Membership</div>
     <div class="m-item"><div class="m-dot"></div>Automotive Maintenance</div>
     <div class="m-item"><div class="m-dot"></div>White-Glove Service</div>
-    <div class="m-item"><div class="m-dot"></div>One Way ₦100,000 &middot; Return ₦200,000</div>
+    <div class="m-item"><div class="m-dot"></div>One Way ₦85,000 &middot; Return ₦170,000</div>
   </div>
 </div>
 
@@ -820,7 +821,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
       <div>
         <div class="s-label reveal">What We Offer</div>
         <h2 class="s-title reveal rd1">Every Mile,<br>Perfected</h2>
-        <p class="svc-sub reveal rd2">From chauffeur-led G-Wagon trips across VI and Ikoyi to full automotive care, we cover every need with precision.</p>
+        <p class="svc-sub reveal rd2">From chauffeur-led G-Wagon trips across Island and Lekki routes to full automotive care, we cover every need with precision.</p>
       </div>
       <a href="services.html" class="btn-s reveal rd2">View All Services</a>
     </div>
@@ -873,7 +874,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
             <div class="f-spec"><div class="f-spec-v">5</div><div class="f-spec-l">Seats</div></div>
           </div>
           <div class="f-price">
-            <div><div><span class="p-main">₦100k</span><span class="p-unit">/trip</span></div><div class="p-alt">One Way · VI or Ikoyi coverage</div></div>
+            <div><div><span class="p-main">₦85k</span><span class="p-unit">/trip</span></div><div class="p-alt">One Way · Island coverage</div></div>
             <a href="#booking" class="fleet-btn">Book Now <svg width="12" height="12" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
           </div>
         </div>
@@ -884,14 +885,14 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
         </div>
         <div class="fleet-body">
           <div class="f-model">Return Transfer</div>
-          <div class="f-trim">Pick-up + Drop-off &middot; VI / Ikoyi</div>
+          <div class="f-trim">Pick-up + Drop-off &middot; Island</div>
           <div class="f-specs">
             <div class="f-spec"><div class="f-spec-v">362</div><div class="f-spec-l">Horsepower</div></div>
             <div class="f-spec"><div class="f-spec-v">5.7s</div><div class="f-spec-l">0–100 km/h</div></div>
             <div class="f-spec"><div class="f-spec-v">5</div><div class="f-spec-l">Seats</div></div>
           </div>
           <div class="f-price">
-            <div><div><span class="p-main">₦200k</span><span class="p-unit">/return</span></div><div class="p-alt">Pickup + drop-off · Priority dispatch</div></div>
+            <div><div><span class="p-main">₦170k</span><span class="p-unit">/return</span></div><div class="p-alt">Pickup + drop-off · 30-min wait cap</div></div>
             <a href="#booking" class="fleet-btn">Book Now <svg width="12" height="12" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
           </div>
         </div>
@@ -901,11 +902,14 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
       <div class="booking-copy">
         <div class="s-label">Reserve Online</div>
         <h3>Book the Rare Miles G-Wagon for your next Lagos arrival.</h3>
-        <p>Choose a one-way or return chauffeured transfer to selected VI and Ikoyi destinations. Payment is handled securely with Paystack, then our concierge continues the booking on WhatsApp.</p>
+        <p>Choose a one-way or return chauffeured transfer across selected Island destinations. Payment is handled securely with Paystack, then our concierge continues the booking on WhatsApp.</p>
         <div class="booking-points">
-          <div class="booking-point">One Way: ₦100,000</div>
-          <div class="booking-point">Return Transfer: ₦200,000</div>
-          <div class="booking-point">Coverage: Victoria Island & Ikoyi</div>
+          <div class="booking-point">One Way: ₦85,000</div>
+          <div class="booking-point">Return Transfer: ₦170,000</div>
+          <div class="booking-point">Start zones: Lekki, Ikoyi & Victoria Island</div>
+          <div class="booking-point">Zone limit: Orchid</div>
+          <div class="booking-point">Chauffeur wait limit: 30 minutes</div>
+          <div class="booking-point">Maximum driving time: 45 minutes</div>
         </div>
       </div>
       <form class="booking-form" id="bookingForm">
@@ -924,25 +928,45 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
         <div class="field">
           <label for="tripPackage">Trip Package</label>
           <select id="tripPackage" name="package" required>
-            <option value="100000" data-name="One Way">One Way - ₦100,000</option>
-            <option value="200000" data-name="Return Transfer">Return Transfer - ₦200,000</option>
+            <option value="85000" data-name="One Way">One Way - ₦85,000</option>
+            <option value="170000" data-name="Return Transfer">Return Transfer - ₦170,000</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="startArea">Start Area</label>
+          <select id="startArea" name="start_area" required>
+            <option value="Lekki">Lekki</option>
+            <option value="Ikoyi">Ikoyi</option>
+            <option value="Victoria Island">Victoria Island</option>
           </select>
         </div>
         <div class="field">
           <label for="tripDestination">Destination</label>
           <select id="tripDestination" name="destination" required>
-            <option value="FOMO, Victoria Island">FOMO - VI</option>
-            <option value="Boho, Victoria Island">Boho - VI</option>
-            <option value="The Smiths, Victoria Island">The Smiths - VI</option>
-            <option value="Zaza, Victoria Island">Zaza - VI</option>
-            <option value="Lulu's, Victoria Island">Lulu's - VI</option>
-            <option value="The Library, Victoria Island">The Library - VI</option>
-            <option value="The Garden, Ikoyi">The Garden - Ikoyi</option>
-            <option value="Mako, Ikoyi">Mako - Ikoyi</option>
-            <option value="Ikoyi Boat Club, Ikoyi">Ikoyi Boat Club - Ikoyi</option>
-            <option value="Jet Ski Club, Ikoyi">Jet Ski Club - Ikoyi</option>
-            <option value="Pitstop, Ikoyi">Pitstop - Ikoyi</option>
-            <option value="Phoenix, Ikoyi">Phoenix - Ikoyi</option>
+            <option value="FOMO">FOMO</option>
+            <option value="Boho">Boho</option>
+            <option value="The Smiths">The Smiths</option>
+            <option value="Zaza">Zaza</option>
+            <option value="Lulu's">Lulu's</option>
+            <option value="The Library">The Library</option>
+            <option value="The Garden">The Garden</option>
+            <option value="Mako">Mako</option>
+            <option value="Ikoyi Boat Club">Ikoyi Boat Club</option>
+            <option value="Jet Ski Club">Jet Ski Club</option>
+            <option value="Pitstop">Pitstop</option>
+            <option value="Phoenix">Phoenix</option>
+            <option value="RSVP">RSVP</option>
+            <option value="Shiro Lagos">Shiro Lagos</option>
+            <option value="Cactus Restaurant">Cactus Restaurant</option>
+            <option value="THE LAGOON">THE LAGOON</option>
+            <option value="W Bar Lounge">W Bar Lounge</option>
+            <option value="Shades Social">Shades Social</option>
+            <option value="The Long Bar Lagos">The Long Bar Lagos</option>
+            <option value="Lagos Irish Pub">Lagos Irish Pub</option>
+            <option value="Vaniti Lagos">Vaniti Lagos</option>
+            <option value="Club 57">Club 57</option>
+            <option value="Rumors Night Club">Rumors Night Club</option>
+            <option value="De Crib Night Club">De Crib Night Club</option>
           </select>
         </div>
         <div class="field">
@@ -955,7 +979,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
         </div>
         <div class="booking-total">
           <span>Payment Due</span>
-          <strong id="bookingTotal">₦100,000</strong>
+          <strong id="bookingTotal">₦85,000</strong>
         </div>
         <button type="submit" class="btn-p pay-btn">Pay & Reserve <svg style="width:16px;height:16px;margin-left:8px;" fill="none" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.5"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25"/></svg></button>
         <p class="pay-note">Replace <strong>YOUR_PAYSTACK_PUBLIC_KEY</strong> in the script with the live Paystack public key before publishing.</p>
@@ -993,7 +1017,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
     <div class="tr-item reveal"><div class="tr-ico"><svg width="19" height="19" fill="none" viewBox="0 0 22 22" stroke="currentColor" stroke-width="1.5"><path d="M11 2L4 6v6c0 4.4 3 8.5 7 9.5C15 20.5 18 16.4 18 12V6l-7-4z"/><path d="M8 11l2 2 4-4"/></svg></div><div class="tr-text"><h4>Verified &amp; Insured</h4><p>All vehicles fully insured and road-certified</p></div></div>
     <div class="tr-item reveal rd1"><div class="tr-ico"><svg width="19" height="19" fill="none" viewBox="0 0 22 22" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="9"/><path d="M11 7v4l3 3"/></svg></div><div class="tr-text"><h4>24/7 Support</h4><p>Round-the-clock WhatsApp assistance</p></div></div>
     <div class="tr-item reveal rd2"><div class="tr-ico"><svg width="19" height="19" fill="none" viewBox="0 0 22 22" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="18" height="14" rx="2"/><path d="M16 2v4M6 2v4M2 9h18"/></svg></div><div class="tr-text"><h4>Instant Booking</h4><p>Seamless Paystack payment integration</p></div></div>
-    <div class="tr-item reveal rd3"><div class="tr-ico"><svg width="19" height="19" fill="none" viewBox="0 0 22 22" stroke="currentColor" stroke-width="1.5"><path d="M11 2C7.1 2 4 5.1 4 9c0 5.3 7 11 7 11s7-5.7 7-11c0-3.9-3.1-7-7-7z"/><circle cx="11" cy="9" r="2.5"/></svg></div><div class="tr-text"><h4>VI / Ikoyi Coverage</h4><p>One-way and return chauffeur trips</p></div></div>
+    <div class="tr-item reveal rd3"><div class="tr-ico"><svg width="19" height="19" fill="none" viewBox="0 0 22 22" stroke="currentColor" stroke-width="1.5"><path d="M11 2C7.1 2 4 5.1 4 9c0 5.3 7 11 7 11s7-5.7 7-11c0-3.9-3.1-7-7-7z"/><circle cx="11" cy="9" r="2.5"/></svg></div><div class="tr-text"><h4>Island Coverage</h4><p>Lekki, Ikoyi, VI and Orchid-limit trips</p></div></div>
   </div>
 </section>
 
@@ -1028,7 +1052,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="#booking">Book a Ride</a></li>
+          <li><a href="book-a-ride.html">Book a Ride</a></li>
           <li><a href="#membership">Membership</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1036,8 +1060,8 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
       <div class="ft-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="#booking">One-Way Trip</a></li>
-          <li><a href="#booking">Return Transfer</a></li>
+          <li><a href="book-a-ride.html#booking">One-Way Trip</a></li>
+          <li><a href="book-a-ride.html#booking">Return Transfer</a></li>
           <li><a href="services.html">Maintenance</a></li>
           <li><a href="#membership">Membership Plans</a></li>
         </ul>
@@ -1119,12 +1143,14 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
   }
   function buildWhatsAppUrl(reference){
     const msg=[
-      'Hello Rare Miles, I just paid for a G-Wagon reservation.',
+      'Hello Rare Miles, I just paid for a car reservation.',
       `Name: ${document.getElementById('guestName').value}`,
       `Phone: ${document.getElementById('guestPhone').value}`,
       `Package: ${selectedPackageName()} (${bookingTotal.textContent})`,
+      `Start Area: ${document.getElementById('startArea').value}`,
       `Destination: ${document.getElementById('tripDestination').value}`,
       `Pickup: ${document.getElementById('pickupTime').value}`,
+      'Note: Trips are within Lekki, Ikoyi, and Victoria Island up to Orchid. Return chauffeur wait is capped at 30 minutes. A wait-and-move request counts as two one-way trips.',
       `Reference: ${reference}`
     ].join('\n');
     return `https://wa.me/${conciergeWhatsApp}?text=${encodeURIComponent(msg)}`;
@@ -1151,6 +1177,7 @@ footer { background:var(--charcoal); border-top:1px solid var(--border); padding
           {display_name:'Customer Name',variable_name:'customer_name',value:document.getElementById('guestName').value},
           {display_name:'Phone',variable_name:'phone',value:document.getElementById('guestPhone').value},
           {display_name:'Trip Package',variable_name:'trip_package',value:selectedPackageName()},
+          {display_name:'Start Area',variable_name:'start_area',value:document.getElementById('startArea').value},
           {display_name:'Destination',variable_name:'destination',value:document.getElementById('tripDestination').value}
         ]
       },
