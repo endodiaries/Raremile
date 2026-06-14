@@ -803,6 +803,135 @@ footer {
     flex-direction:column;
   }
 }
+/* ─────────────────────────────────────────
+   BRIGHTER LUXURY FINISH
+───────────────────────────────────────── */
+:root {
+  --obsidian:#151210;
+  --charcoal:#1d1814;
+  --card:#241f1a;
+  --border:rgba(255,255,255,.12);
+  --text:#f5f1ec;
+  --muted:#b9b0a7;
+  --dim:#756b62;
+}
+body {
+  background:
+    radial-gradient(circle at 80% 14%, rgba(191,44,66,.16), transparent 32%),
+    radial-gradient(circle at 18% 82%, rgba(201,168,76,.12), transparent 30%),
+    linear-gradient(135deg,#171310 0%,#221914 48%,#11100f 100%);
+}
+body::before {
+  background:
+    radial-gradient(circle at 76% 18%, rgba(191,44,66,.2), transparent 34%),
+    radial-gradient(circle at 18% 82%, rgba(201,168,76,.13), transparent 31%),
+    linear-gradient(90deg, rgba(255,255,255,.034) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.024) 1px, transparent 1px);
+  opacity:.82;
+}
+nav,
+.mob-menu {
+  background:rgba(22,18,15,.9);
+  border-bottom-color:rgba(255,255,255,.12);
+}
+.ride-hero::before {
+  background:
+    linear-gradient(105deg, rgba(18,15,13,.9), rgba(22,18,15,.64) 48%, rgba(42,25,20,.24)),
+    radial-gradient(ellipse at 80% 55%, rgba(191,44,66,.34), transparent 50%),
+    radial-gradient(ellipse at 64% 74%, rgba(201,168,76,.12), transparent 42%);
+}
+section,
+.rules,
+footer {
+  background:
+    radial-gradient(circle at 84% 14%, rgba(191,44,66,.08), transparent 34%),
+    var(--charcoal);
+}
+.vehicle-card,
+.booking-shell,
+.rule-card,
+.info-card {
+  background:linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014)), var(--card);
+  border-color:rgba(255,255,255,.12);
+}
+.vehicle-image {
+  background:
+    radial-gradient(ellipse at 50% 66%, rgba(191,44,66,.27), transparent 62%),
+    radial-gradient(ellipse at 42% 34%, rgba(201,168,76,.14), transparent 45%),
+    linear-gradient(125deg, rgba(255,255,255,.075), rgba(255,255,255,.016));
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.14);
+}
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  background:rgba(255,255,255,.07);
+}
+select option { background:#241f1a; color:#fff; }
+@media(max-width:900px) {
+  nav { background:rgba(18,15,13,.96); }
+}
+/* Client brightness pass: champagne panels for a lighter luxury feel. */
+:root {
+  --cream:#f4eee5;
+  --cream-soft:rgba(244,238,229,.16);
+  --cream-line:rgba(244,238,229,.24);
+  --obsidian:#1d1713;
+  --charcoal:#2a221c;
+  --card:#342a22;
+  --text:#fffaf3;
+  --muted:#d2c9bf;
+  --dim:#9d9187;
+}
+body {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(244,238,229,.16), transparent 28%),
+    radial-gradient(circle at 80% 14%, rgba(191,44,66,.18), transparent 32%),
+    radial-gradient(circle at 18% 82%, rgba(201,168,76,.18), transparent 30%),
+    linear-gradient(135deg,#1d1713 0%,#2d211a 48%,#181411 100%);
+}
+section,
+.fleet,
+.rules,
+footer {
+  background:
+    linear-gradient(135deg, rgba(244,238,229,.13), rgba(244,238,229,.04) 42%, rgba(191,44,66,.08)),
+    radial-gradient(circle at 12% 12%, rgba(255,255,255,.1), transparent 26%),
+    var(--charcoal);
+}
+.vehicle-card,
+.booking-shell,
+.rule-card,
+.info-card,
+.success-card {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)),
+    rgba(52,42,34,.92);
+  border-color:var(--cream-line);
+  box-shadow:0 24px 80px rgba(0,0,0,.2);
+}
+.vehicle-image {
+  background:
+    radial-gradient(ellipse at 50% 66%, rgba(191,44,66,.28), transparent 62%),
+    radial-gradient(ellipse at 42% 34%, rgba(244,238,229,.18), transparent 45%),
+    linear-gradient(125deg, rgba(255,255,255,.14), rgba(255,255,255,.035));
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  background:rgba(255,255,255,.09);
+  border-color:rgba(244,238,229,.24);
+}
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  background:rgba(255,255,255,.13);
+}
+select option { background:#342a22; color:#fffaf3; }
 </style>
 </head>
 <body>
@@ -813,7 +942,7 @@ footer {
   <ul class="nav-links">
     <li><a href="about.html">About</a></li>
     <li><a href="book-a-ride.html" class="active">Book a Ride</a></li>
-    <li><a href="index.html#membership">Membership</a></li>
+    <li><a href="membership.html">Membership</a></li>
     <li><a href="index.html#contact">Contact</a></li>
     <li><a href="#booking" class="nav-cta">Book Now</a></li>
   </ul>
@@ -825,7 +954,7 @@ footer {
   <a href="index.html#home">Home</a>
   <a href="about.html">About</a>
   <a href="book-a-ride.html">Book a Ride</a>
-  <a href="index.html#membership">Membership</a>
+  <a href="membership.html">Membership</a>
   <a href="index.html#contact">Contact</a>
   <a href="#booking">Book Now</a>
 </div>
@@ -835,7 +964,7 @@ footer {
     <div class="hero-copy">
       <div class="eyebrow">Rare Miles Reservations</div>
       <h1>Book the ride <span>before the arrival.</span></h1>
-      <p>Reserve a chauffeured Rare Miles experience for selected Island destinations. Pick a vehicle, choose a one-way or return transfer, then complete payment securely through Paystack.</p>
+      <p>Reserve a chauffeured Rare Miles experience for selected Island destinations. Pick a vehicle, choose a one-way or return transfer, then complete payment securely online.</p>
       <div class="hero-stats" aria-label="Rare Miles booking highlights">
         <div class="hero-stat">
         <strong>2</strong>
@@ -846,7 +975,7 @@ footer {
           <span>Coverage area</span>
         </div>
         <div class="hero-stat">
-          <strong>₦85k</strong>
+          <strong>₦100k</strong>
           <span>Starting / trip</span>
         </div>
       </div>
@@ -865,7 +994,7 @@ footer {
       <div class="vehicle-grid">
         <article class="vehicle-card">
           <div class="vehicle-image">
-            <img src="assets/gwagon-grey.png" alt="Grey Mercedes-Benz G-Wagon" class="vehicle-gwagon">
+            <img src="assets/client-gwagon-side.jpeg" alt="Black Mercedes-Benz G-Wagon" class="vehicle-gwagon">
           </div>
           <div class="vehicle-body">
             <div class="vehicle-kicker">Flagship SUV</div>
@@ -907,12 +1036,12 @@ footer {
           <h3>Trip-based pricing for selected Lagos destinations.</h3>
           <p>The current model charges by trip package, not hourly rental. A trip is one movement from Point A to Point B inside the approved zone. Payment starts the reservation, then the concierge confirms dispatch details on WhatsApp.</p>
           <ul>
-            <li>One Way: ₦85,000</li>
-            <li>Return Transfer: ₦170,000</li>
+            <li>One Way: ₦100,000</li>
+            <li>Return Transfer: ₦180,000</li>
             <li>Start zones: Lekki, Ikoyi &amp; Victoria Island</li>
             <li>Zone limit: Orchid</li>
             <li>Return chauffeur wait limit: 30 minutes</li>
-            <li>Wait-and-move requests count as two one-way trips: ₦170,000</li>
+            <li>Wait-and-move requests count as two one-way trips: ₦200,000</li>
             <li>Maximum driving time: 45 minutes per trip</li>
             <li>Outside zone trips require a long-distance surcharge</li>
           </ul>
@@ -940,8 +1069,8 @@ footer {
           <div class="field">
             <label for="tripPackage">Trip Package</label>
             <select id="tripPackage" name="package" required>
-              <option value="85000" data-name="One Way">One Way - ₦85,000</option>
-              <option value="170000" data-name="Return Transfer">Return Transfer - ₦170,000</option>
+              <option value="100000" data-name="One Way" data-payment-url="https://flutterwave.com/pay/7sswpwjebm2z">One Way - ₦100,000</option>
+              <option value="180000" data-name="Return Transfer" data-payment-url="https://flutterwave.com/pay/060lwwtmq1ph">Return Transfer - ₦180,000</option>
             </select>
           </div>
           <div class="field">
@@ -991,10 +1120,10 @@ footer {
           </div>
           <div class="booking-total">
             <span>Payment Due</span>
-            <strong id="bookingTotal">₦85,000</strong>
+            <strong id="bookingTotal">₦100,000</strong>
           </div>
           <button type="submit" class="pay-btn">Pay & Reserve</button>
-          <p class="pay-note">Replace <strong>YOUR_PAYSTACK_PUBLIC_KEY</strong> in the script with the live Paystack public key before publishing.</p>
+          <p class="pay-note">One-way and return-transfer bookings continue through secure Flutterwave checkout, then WhatsApp confirmation.</p>
         </form>
       </div>
     </div>
@@ -1019,7 +1148,7 @@ footer {
           <li><a href="index.html#home">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="book-a-ride.html">Book a Ride</a></li>
-          <li><a href="index.html#membership">Membership</a></li>
+          <li><a href="membership.html">Membership</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
       </div>
@@ -1029,7 +1158,7 @@ footer {
           <li><a href="#booking">One-Way Trip</a></li>
           <li><a href="#booking">Return Transfer</a></li>
           <li><a href="services.html">Maintenance</a></li>
-          <li><a href="index.html#membership">Membership Plans</a></li>
+          <li><a href="membership.html">Membership Plans</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -1086,6 +1215,9 @@ const naira = new Intl.NumberFormat('en-NG', { style:'currency', currency:'NGN',
 function selectedPackageName() {
   return packageSelect.options[packageSelect.selectedIndex].dataset.name;
 }
+function selectedPaymentUrl() {
+  return packageSelect.options[packageSelect.selectedIndex].dataset.paymentUrl || '';
+}
 function updateBookingTotal() {
   bookingTotal.textContent = naira.format(Number(packageSelect.value));
 }
@@ -1093,6 +1225,7 @@ function buildWhatsAppUrl(reference) {
   const msg = [
     'Hello Rare Miles, I just paid for a car reservation.',
     `Name: ${document.getElementById('guestName').value}`,
+    `Email: ${document.getElementById('guestEmail').value}`,
     `Phone: ${document.getElementById('guestPhone').value}`,
     `Vehicle: ${vehicleSelect.value}`,
     `Package: ${selectedPackageName()} (${bookingTotal.textContent})`,
@@ -1103,6 +1236,26 @@ function buildWhatsAppUrl(reference) {
     `Reference: ${reference}`
   ].join('\n');
   return `https://wa.me/${conciergeWhatsApp}?text=${encodeURIComponent(msg)}`;
+}
+function collectBookingDetails(reference = 'Pending Flutterwave confirmation') {
+  return {
+    name: document.getElementById('guestName').value.trim(),
+    phone: document.getElementById('guestPhone').value.trim(),
+    email: document.getElementById('guestEmail').value.trim(),
+    vehicle: vehicleSelect.value,
+    package: selectedPackageName(),
+    amount: bookingTotal.textContent,
+    startArea: document.getElementById('startArea').value,
+    destination: document.getElementById('tripDestination').value,
+    pickup: document.getElementById('pickupTime').value,
+    note: document.getElementById('tripNote').value.trim(),
+    reference,
+    source: 'book-a-ride',
+    createdAt: new Date().toISOString()
+  };
+}
+function savePendingBooking() {
+  localStorage.setItem('rareMilesPendingBooking', JSON.stringify(collectBookingDetails()));
 }
 
 document.querySelectorAll('[data-vehicle]').forEach(button => {
@@ -1117,8 +1270,14 @@ updateBookingTotal();
 bookingForm.addEventListener('submit', event => {
   event.preventDefault();
   if (!bookingForm.reportValidity()) return;
+  const paymentUrl = selectedPaymentUrl();
+  if (paymentUrl) {
+    savePendingBooking();
+    window.location.href = paymentUrl;
+    return;
+  }
   if (!window.PaystackPop || PAYSTACK_PUBLIC_KEY === 'YOUR_PAYSTACK_PUBLIC_KEY') {
-    alert('Paystack is ready to connect. Please add the live Paystack public key before accepting payments.');
+    alert('This package payment link is not connected yet. Please add the live payment link before accepting this package online.');
     return;
   }
   const handler = PaystackPop.setup({
@@ -1138,6 +1297,7 @@ bookingForm.addEventListener('submit', event => {
       ]
     },
     callback(response) {
+      localStorage.setItem('rareMilesPendingBooking', JSON.stringify(collectBookingDetails(response.reference)));
       whatsappRedirect.href = buildWhatsAppUrl(response.reference);
       successModal.classList.add('open');
     },
