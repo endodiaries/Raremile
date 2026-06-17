@@ -1504,6 +1504,64 @@ select option {
   background:#241f1a !important;
   color:#fffaf3 !important;
 }
+
+/* Mobile overflow guard: keep vehicle cards and imagery inside the viewport. */
+@media(max-width:768px) {
+  .fleet,
+  #fleet {
+    overflow:hidden !important;
+  }
+
+  .vehicle-grid {
+    width:calc(100vw - 48px) !important;
+    max-width:352px !important;
+    min-width:0 !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .vehicle-card {
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    overflow:hidden !important;
+  }
+
+  .vehicle-image {
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    min-height:220px !important;
+    padding:18px 0 !important;
+    overflow:hidden !important;
+  }
+
+  .vehicle-image img,
+  .vehicle-image img.vehicle-gwagon,
+  .vehicle-image img.vehicle-gle {
+    width:112% !important;
+    max-width:none !important;
+    max-height:238px !important;
+    object-fit:contain !important;
+    transform:translateX(-3%) !important;
+  }
+
+  .vehicle-body {
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    padding:24px 20px !important;
+  }
+
+  .vehicle-body h3,
+  .vehicle-body p,
+  .vehicle-kicker {
+    max-width:100% !important;
+    overflow-wrap:break-word !important;
+  }
+}
 </style>
 </head>
 <body>
