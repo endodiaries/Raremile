@@ -613,7 +613,7 @@ footer {
 .ft-inner { max-width:1280px; margin:0 auto; }
 .ft-grid {
   display:grid;
-  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  grid-template-columns:1.6fr 1fr 1fr;
   gap:56px;
   margin-bottom:52px;
 }
@@ -932,6 +932,578 @@ footer {
   background:rgba(255,255,255,.13);
 }
 select option { background:#342a22; color:#fffaf3; }
+/* Mobile polish pass: centered hero, calmer panels, and no scattered cards/forms. */
+@media(max-width:768px) {
+  body {
+    background:
+      radial-gradient(circle at 50% 14%, rgba(244,238,229,.12), transparent 32%),
+      radial-gradient(circle at 52% 54%, rgba(191,44,66,.18), transparent 38%),
+      linear-gradient(180deg,#120f0d 0%,#2b211c 50%,#12100e 100%);
+  }
+
+  nav {
+    height:84px;
+    padding:0 6%;
+    background:rgba(12,10,9,.96);
+  }
+
+  .nav-logo img {
+    height:58px;
+  }
+
+  .mobile-menu-trigger {
+    width:34px;
+    height:28px;
+  }
+
+  .mobile-menu-trigger span {
+    width:32px;
+    height:3px;
+  }
+
+  .ride-hero {
+    min-height:auto;
+    padding:128px 6% 64px;
+    text-align:center;
+    align-items:center;
+    justify-content:center;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(201,168,76,.13), transparent 34%),
+      linear-gradient(180deg,#120f0d 0%,#2d211c 58%,#15110f 100%);
+  }
+
+  .ride-hero::before {
+    background:
+      linear-gradient(180deg, rgba(18,15,13,.92), rgba(42,34,28,.64) 52%, rgba(18,15,13,.96)),
+      radial-gradient(ellipse at 50% 44%, rgba(191,44,66,.22), transparent 58%);
+  }
+
+  .hero-copy {
+    width:100%;
+    max-width:356px;
+    margin:0 auto;
+  }
+
+  .eyebrow {
+    justify-content:center;
+    gap:12px;
+    margin-bottom:22px;
+    font-size:8.5px;
+    letter-spacing:.26em;
+  }
+
+  .eyebrow::before {
+    width:38px;
+  }
+
+  h1 {
+    max-width:356px;
+    margin:0 auto 24px;
+    font-size:clamp(38px,11.4vw,54px);
+    line-height:.98;
+    letter-spacing:-.035em;
+  }
+
+  .hero-copy p {
+    max-width:340px;
+    margin:0 auto;
+    font-size:12.5px;
+    line-height:1.85;
+    letter-spacing:.045em;
+  }
+
+  .hero-stats {
+    width:100%;
+    max-width:352px;
+    margin:34px auto 0;
+    grid-template-columns:1fr;
+    background:rgba(244,238,229,.18);
+  }
+
+  .hero-stat {
+    padding:20px 22px;
+    text-align:center;
+    background:linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  }
+
+  section {
+    padding:72px 6%;
+    overflow:hidden;
+  }
+
+  .inner {
+    width:100%;
+    max-width:100%;
+  }
+
+  .section-head {
+    text-align:center;
+    align-items:center;
+    gap:18px;
+    margin-bottom:34px;
+  }
+
+  .section-label {
+    font-size:9px;
+    letter-spacing:.28em;
+  }
+
+  .fleet-title,
+  h2 {
+    max-width:100%;
+    font-size:clamp(32px,9.5vw,44px);
+    line-height:1.03;
+  }
+
+  .section-head p {
+    max-width:342px;
+    margin:0 auto;
+    font-size:12.5px;
+  }
+
+  .vehicle-grid,
+  .booking-shell {
+    grid-template-columns:1fr;
+  }
+
+  .vehicle-card,
+  .booking-shell,
+  .rule-card,
+  .info-card {
+    width:100%;
+    border-color:rgba(244,238,229,.24);
+  }
+
+  .vehicle-image {
+    min-height:235px;
+    padding:22px 0;
+  }
+
+  .vehicle-image img.vehicle-gwagon {
+    width:128%;
+    max-height:260px;
+    transform:translate(2%, 6px) scale(1.04);
+  }
+
+  .vehicle-image img.vehicle-gle {
+    width:122%;
+    max-height:250px;
+    transform:translateY(8px) scale(1.02);
+  }
+
+  .vehicle-body {
+    padding:24px 22px;
+    text-align:center;
+  }
+
+  .vehicle-body h3 {
+    font-size:clamp(25px,8vw,31px);
+  }
+
+  .spec-row {
+    grid-template-columns:1fr;
+  }
+
+  .spec {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .spec:last-child {
+    border-bottom:0;
+  }
+
+  .card-action,
+  .pay-btn {
+    min-height:56px;
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .booking-shell {
+    padding:24px 20px;
+    gap:26px;
+  }
+
+  .booking-copy {
+    padding:0 0 24px;
+    border-right:0;
+    border-bottom:1px solid var(--border);
+    text-align:center;
+  }
+
+  .booking-copy h3 {
+    font-size:clamp(27px,8.2vw,34px);
+  }
+
+  .booking-copy ul {
+    max-width:330px;
+    margin:24px auto 0;
+    text-align:left;
+  }
+
+  .booking-form {
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height:54px;
+    font-size:14px;
+  }
+
+  .booking-total {
+    align-items:center;
+    text-align:center;
+    flex-direction:column;
+  }
+}
+
+@media(max-width:390px) {
+  .ride-hero {
+    padding-top:116px;
+  }
+
+  h1 {
+    font-size:clamp(34px,10.8vw,48px);
+  }
+
+  .vehicle-image img.vehicle-gwagon {
+    width:142%;
+    transform:translate(3%, 8px) scale(1.02);
+  }
+}
+
+/* Final mobile layout guard: centered hero, clean cards, readable forms. */
+@media(max-width:1100px) {
+  html,
+  body {
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 50% 16%, rgba(244,238,229,.12), transparent 31%),
+      radial-gradient(circle at 54% 55%, rgba(191,44,66,.2), transparent 42%),
+      linear-gradient(180deg,#100d0b 0%,#2a201b 50%,#11100e 100%);
+  }
+
+  nav {
+    height:84px;
+    padding:0 6%;
+    background:rgba(12,10,9,.97);
+  }
+
+  .ride-hero,
+  section,
+  footer {
+    width:100%;
+    max-width:100vw;
+    overflow:hidden;
+  }
+
+  .ride-hero {
+    display:flex;
+    flex-direction:column;
+    min-height:auto;
+    padding:122px 0 62px;
+    align-items:flex-start;
+    justify-content:flex-start;
+    text-align:left;
+    background:
+      radial-gradient(circle at 50% 28%, rgba(244,238,229,.12), transparent 31%),
+      radial-gradient(circle at 56% 58%, rgba(191,44,66,.2), transparent 42%),
+      linear-gradient(180deg,#100d0b 0%,#2b211c 54%,#11100e 100%);
+  }
+
+  .hero-copy {
+    width:min(352px, calc(100vw - 48px));
+    max-width:calc(100vw - 48px);
+    margin:0 0 0 24px;
+  }
+
+  .eyebrow {
+    width:100%;
+    justify-content:flex-start;
+    margin-bottom:22px;
+  }
+
+  h1 {
+    width:100%;
+    max-width:100%;
+    margin:0 auto 24px;
+    font-size:clamp(38px,11vw,52px);
+    line-height:1.02;
+  }
+
+  .hero-copy p {
+    width:100%;
+    max-width:100%;
+    margin:0;
+    font-size:12.5px;
+    line-height:1.85;
+    letter-spacing:.04em;
+    overflow-wrap:break-word;
+  }
+
+  .hero-stats {
+    width:100%;
+    max-width:100%;
+    margin:32px 0 0;
+    grid-template-columns:1fr;
+  }
+
+  section {
+    padding:72px 6%;
+  }
+
+  .inner,
+  .section-head,
+  .vehicle-grid,
+  .booking-shell,
+  .rules-grid,
+  .info-grid {
+    width:100%;
+    max-width:100%;
+  }
+
+  .section-head {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:18px;
+  }
+
+  .fleet-title,
+  h2 {
+    width:100%;
+    max-width:100%;
+    font-size:clamp(32px,9.5vw,44px);
+    line-height:1.04;
+  }
+
+  .section-head p {
+    width:100%;
+    max-width:342px;
+    font-size:12.5px;
+    line-height:1.85;
+  }
+
+  .vehicle-grid,
+  .booking-shell,
+  .rules-grid,
+  .info-grid {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .vehicle-card,
+  .booking-shell,
+  .rule-card,
+  .info-card {
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+    background:
+      linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.035)),
+      rgba(42,34,28,.94);
+    border-color:rgba(244,238,229,.24);
+  }
+
+  .vehicle-image {
+    min-height:255px;
+    padding:24px 0;
+  }
+
+  .vehicle-image img.vehicle-gwagon {
+    width:144%;
+    max-height:284px;
+    transform:translate(4%, 8px) scale(1.03);
+  }
+
+  .vehicle-image img.vehicle-gle {
+    width:130%;
+    max-height:272px;
+    transform:translateY(6px) scale(1.02);
+  }
+
+  .vehicle-body {
+    padding:24px 22px;
+    text-align:center;
+  }
+
+  .vehicle-body h3 {
+    font-size:clamp(25px,7.6vw,30px);
+    line-height:1.08;
+  }
+
+  .spec-row {
+    grid-template-columns:1fr;
+  }
+
+  .card-action,
+  .pay-btn {
+    width:100%;
+    max-width:100%;
+    min-height:58px;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .booking-shell {
+    padding:24px 20px;
+  }
+
+  .booking-copy {
+    padding:0 0 24px;
+    border-right:0;
+    border-bottom:1px solid var(--border);
+    text-align:center;
+  }
+
+  .booking-copy h3 {
+    font-size:clamp(27px,8.4vw,34px);
+  }
+
+  .booking-copy ul {
+    max-width:330px;
+    margin:24px auto 0;
+    text-align:left;
+  }
+
+  .booking-form {
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    width:100%;
+  }
+
+  input,
+  select,
+  textarea {
+    width:100%;
+    min-height:54px;
+    font-size:14px;
+    color:#fffaf3;
+    background:rgba(255,255,255,.1);
+    border-color:rgba(244,238,229,.26);
+  }
+
+  .booking-total {
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:390px) {
+  .ride-hero {
+    padding-top:112px;
+  }
+
+  h1 {
+    font-size:clamp(34px,10.8vw,47px);
+  }
+
+  .vehicle-image img.vehicle-gwagon {
+    width:152%;
+    transform:translate(5%, 8px) scale(1.01);
+  }
+}
+
+/* Final uniform palette: cleaner champagne-charcoal surfaces across the site. */
+:root {
+  --obsidian:#11100f;
+  --charcoal:#1c1916;
+  --card:#2d2722;
+  --border:rgba(246,241,233,.16);
+  --text:#fffaf3;
+  --muted:#d8cec2;
+  --dim:#91877c;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(246,241,233,.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(191,44,66,.18), transparent 34%),
+    radial-gradient(circle at 18% 92%, rgba(201,168,76,.10), transparent 32%),
+    linear-gradient(135deg,#11100f 0%,#25201b 48%,#171310 100%) !important;
+}
+
+body::before {
+  background:
+    linear-gradient(rgba(246,241,233,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246,241,233,.04) 1px, transparent 1px) !important;
+  opacity:.18 !important;
+}
+
+nav {
+  background:rgba(17,16,15,.94) !important;
+  border-bottom-color:rgba(246,241,233,.14) !important;
+}
+
+.mobile-menu {
+  background:rgba(17,16,15,.98) !important;
+}
+
+.ride-hero {
+  background:
+    radial-gradient(ellipse at 76% 58%, rgba(191,44,66,.22), transparent 52%),
+    radial-gradient(ellipse at 62% 84%, rgba(201,168,76,.12), transparent 45%),
+    linear-gradient(105deg,#11100f 0%,#191614 48%,#211a17 100%) !important;
+}
+
+.ride-hero::before {
+  background:
+    linear-gradient(105deg, rgba(17,16,15,.96), rgba(17,16,15,.72) 48%, rgba(17,16,15,.24)),
+    radial-gradient(ellipse at 78% 54%, rgba(191,44,66,.18), transparent 50%) !important;
+}
+
+section:not(.ride-hero),
+.booking-section,
+.rules-section,
+footer {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(246,241,233,.08), transparent 28%),
+    linear-gradient(135deg,#1c1916,#28231e 58%,#1a1513) !important;
+}
+
+.vehicle-card,
+.booking-shell,
+.rule-card,
+.info-card,
+.success-card,
+.hero-stat {
+  background:
+    linear-gradient(145deg, rgba(246,241,233,.10), rgba(246,241,233,.025)),
+    rgba(45,39,34,.94) !important;
+  border-color:rgba(246,241,233,.18) !important;
+}
+
+input,
+select,
+textarea {
+  background:rgba(246,241,233,.10) !important;
+  border-color:rgba(246,241,233,.24) !important;
+  color:#fffaf3 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color:rgba(255,250,243,.48) !important;
+}
+
+select option {
+  background:#241f1a !important;
+  color:#fffaf3 !important;
+}
 </style>
 </head>
 <body>
@@ -943,7 +1515,7 @@ select option { background:#342a22; color:#fffaf3; }
     <li><a href="about.html">About</a></li>
     <li><a href="book-a-ride.html" class="active">Book a Ride</a></li>
     <li><a href="membership.html">Membership</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="#booking" class="nav-cta">Book Now</a></li>
   </ul>
   <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Open menu">
@@ -955,7 +1527,7 @@ select option { background:#342a22; color:#fffaf3; }
   <a href="about.html">About</a>
   <a href="book-a-ride.html">Book a Ride</a>
   <a href="membership.html">Membership</a>
-  <a href="index.html#contact">Contact</a>
+  <a href="contact.html">Contact</a>
   <a href="#booking">Book Now</a>
 </div>
 
@@ -1149,16 +1721,7 @@ select option { background:#342a22; color:#fffaf3; }
           <li><a href="about.html">About</a></li>
           <li><a href="book-a-ride.html">Book a Ride</a></li>
           <li><a href="membership.html">Membership</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="#booking">One-Way Trip</a></li>
-          <li><a href="#booking">Return Transfer</a></li>
-          <li><a href="services.html">Maintenance</a></li>
-          <li><a href="membership.html">Membership Plans</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -1255,6 +1818,7 @@ function collectBookingDetails(reference = 'Pending Flutterwave confirmation') {
   };
 }
 function savePendingBooking() {
+  localStorage.removeItem('rareMilesPendingMembership');
   localStorage.setItem('rareMilesPendingBooking', JSON.stringify(collectBookingDetails()));
 }
 
