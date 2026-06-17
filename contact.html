@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Rare Miles Autos &amp; Logistics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson:#bf2c42;
+  --crimson-dark:#8a1e2f;
+  --gold:#c9a84c;
+  --obsidian:#11100f;
+  --charcoal:#1c1916;
+  --card:#2d2722;
+  --border:rgba(246,241,233,.16);
+  --text:#fffaf3;
+  --muted:#d8cec2;
+  --dim:#91877c;
+  --nav-h:82px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  min-height:100vh;
+  background:var(--obsidian);
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  overflow-x:hidden;
+}
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(191,44,66,.16), transparent 32%),
+    radial-gradient(circle at 12% 74%, rgba(201,168,76,.10), transparent 30%),
+    linear-gradient(90deg, rgba(246,241,233,.035) 1px, transparent 1px),
+    linear-gradient(rgba(246,241,233,.025) 1px, transparent 1px);
+  background-size:auto, auto, 54px 54px, 54px 54px;
+}
+a { color:inherit; }
+
+nav {
+  position:fixed;
+  inset:0 0 auto;
+  height:var(--nav-h);
+  padding:0 5%;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(17,16,15,.9);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo img {
+  height:54px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter:drop-shadow(0 0 12px rgba(191,44,66,.22));
+}
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:34px;
+  list-style:none;
+}
+.nav-links a {
+  position:relative;
+  color:rgba(255,250,243,.64);
+  text-decoration:none;
+  text-transform:uppercase;
+  white-space:nowrap;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.22em;
+  transition:color .25s ease;
+}
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:1px;
+  background:var(--crimson);
+  transition:width .28s ease;
+}
+.nav-links a:hover,
+.nav-links .active { color:#fff; }
+.nav-links a:hover::after,
+.nav-links .active::after { width:100%; }
+.nav-cta {
+  background:var(--crimson) !important;
+  color:#fff !important;
+  padding:10px 24px;
+  border-radius:1px;
+  box-shadow:0 12px 30px rgba(191,44,66,.22);
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--crimson-dark) !important; }
+
+.mobile-menu-trigger {
+  display:none;
+  width:32px;
+  height:26px;
+  border:0;
+  background:transparent;
+  flex-direction:column;
+  justify-content:center;
+  gap:6px;
+  cursor:pointer;
+}
+.mobile-menu-trigger span {
+  display:block;
+  width:30px;
+  height:2.5px;
+  border-radius:999px;
+  background:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,.72);
+  transition:transform .25s ease, opacity .25s ease;
+}
+.mobile-menu-trigger.open span:nth-child(1) { transform:translateY(8.5px) rotate(45deg); }
+.mobile-menu-trigger.open span:nth-child(2) { opacity:0; }
+.mobile-menu-trigger.open span:nth-child(3) { transform:translateY(-8.5px) rotate(-45deg); }
+.mob-menu {
+  display:none;
+  position:fixed;
+  top:var(--nav-h);
+  left:0;
+  right:0;
+  z-index:45;
+  padding:8px 5% 24px;
+  background:rgba(17,16,15,.98);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(18px);
+}
+.mob-menu.open { display:block; }
+.mob-menu a {
+  display:block;
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  color:rgba(255,250,243,.78);
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.2em;
+}
+.mob-menu a:last-child {
+  margin-top:14px;
+  padding:15px;
+  text-align:center;
+  border:0;
+  background:var(--crimson);
+  color:#fff;
+}
+
+.page-hero {
+  position:relative;
+  min-height:680px;
+  padding:148px 5% 76px;
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(360px,1fr);
+  gap:64px;
+  align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse at 72% 46%, rgba(191,44,66,.18), transparent 44%),
+    radial-gradient(ellipse at 18% 86%, rgba(201,168,76,.10), transparent 35%),
+    linear-gradient(115deg,#11100f 0%,#1c1916 48%,#2b221e 100%);
+}
+.page-hero::after {
+  content:'';
+  position:absolute;
+  inset:auto 4% 7% auto;
+  width:min(520px,46vw);
+  aspect-ratio:1;
+  border:1px solid rgba(201,168,76,.18);
+  border-radius:50%;
+  opacity:.8;
+  pointer-events:none;
+}
+.hero-copy,
+.contact-panel { position:relative; z-index:1; }
+.eyebrow {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:28px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:9.5px;
+  font-weight:700;
+  letter-spacing:.38em;
+}
+.eyebrow::before {
+  content:'';
+  width:36px;
+  height:1px;
+  background:var(--crimson);
+  flex-shrink:0;
+}
+h1 {
+  max-width:650px;
+  margin-bottom:26px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,6.8vw,94px);
+  line-height:.92;
+  letter-spacing:-.045em;
+  text-shadow:0 18px 44px rgba(0,0,0,.6);
+}
+h1 span {
+  display:block;
+  color:var(--crimson);
+  font-style:italic;
+}
+.lead {
+  max-width:620px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.95;
+  letter-spacing:.04em;
+}
+.hero-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:38px;
+}
+.btn {
+  min-height:58px;
+  min-width:210px;
+  padding:0 30px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(246,241,233,.28);
+  text-decoration:none;
+  text-transform:uppercase;
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.22em;
+  transition:transform .25s ease, background .25s ease, border-color .25s ease;
+  cursor:pointer;
+}
+.btn:hover { transform:translateY(-2px); }
+.btn-primary {
+  border-color:var(--crimson);
+  background:var(--crimson);
+  box-shadow:0 18px 44px rgba(191,44,66,.26);
+}
+.btn-secondary { background:rgba(246,241,233,.025); }
+
+.contact-panel {
+  border:1px solid var(--border);
+  background:
+    linear-gradient(145deg, rgba(246,241,233,.10), rgba(246,241,233,.025)),
+    rgba(45,39,34,.92);
+  box-shadow:0 28px 90px rgba(0,0,0,.35);
+}
+.panel-top {
+  padding:34px;
+  border-bottom:1px solid var(--border);
+}
+.panel-top h2 {
+  margin-bottom:12px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,3.4vw,46px);
+  line-height:1;
+  letter-spacing:-.035em;
+}
+.panel-top p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+.quick-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:rgba(246,241,233,.14);
+}
+.quick-card {
+  min-height:150px;
+  padding:26px;
+  background:rgba(28,25,22,.92);
+}
+.quick-card span {
+  display:block;
+  margin-bottom:18px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.26em;
+}
+.quick-card a,
+.quick-card strong {
+  display:block;
+  color:var(--text);
+  text-decoration:none;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(23px,2.1vw,32px);
+  line-height:1;
+}
+.quick-card small {
+  display:block;
+  margin-top:10px;
+  color:var(--dim);
+  font-size:11px;
+  line-height:1.7;
+  letter-spacing:.08em;
+}
+
+.contact-section {
+  padding:96px 5% 118px;
+  background:
+    radial-gradient(circle at 14% 10%, rgba(246,241,233,.08), transparent 28%),
+    linear-gradient(135deg,#1c1916,#28231e 58%,#1a1513);
+}
+.contact-shell {
+  max-width:1180px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:minmax(300px,.48fr) minmax(0,1fr);
+  gap:44px;
+  align-items:start;
+}
+.section-label {
+  margin-bottom:22px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.34em;
+}
+.contact-intro h2 {
+  max-width:520px;
+  margin-bottom:24px;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,4.8vw,68px);
+  line-height:.95;
+  letter-spacing:-.04em;
+}
+.contact-intro p {
+  max-width:520px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.9;
+  letter-spacing:.035em;
+}
+.support-list {
+  max-width:520px;
+  margin-top:30px;
+  display:grid;
+  gap:14px;
+}
+.support-card {
+  padding:18px 20px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(145deg, rgba(246,241,233,.08), rgba(246,241,233,.025)),
+    rgba(28,25,22,.76);
+}
+.support-card span {
+  display:block;
+  margin-bottom:8px;
+  color:var(--crimson);
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.24em;
+}
+.support-card a {
+  display:inline-flex;
+  align-items:baseline;
+  gap:10px;
+  color:var(--text);
+  text-decoration:none;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(22px,2.2vw,30px);
+  line-height:1;
+}
+.support-card small {
+  color:var(--dim);
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  letter-spacing:.08em;
+}
+.form-panel {
+  width:100%;
+  max-width:760px;
+  margin-left:auto;
+  padding:42px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(145deg, rgba(246,241,233,.10), rgba(246,241,233,.025)),
+    rgba(45,39,34,.94);
+}
+.contact-form {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  column-gap:26px;
+  row-gap:24px;
+  align-items:start;
+}
+.field { display:flex; flex-direction:column; gap:9px; }
+.field.full { grid-column:1 / -1; }
+label {
+  color:rgba(255,250,243,.58);
+  text-transform:uppercase;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.22em;
+}
+input,
+select,
+textarea {
+  width:100%;
+  border:1px solid rgba(246,241,233,.24);
+  background:rgba(246,241,233,.10);
+  color:var(--text);
+  min-height:62px;
+  padding:0 20px;
+  border-radius:0;
+  outline:none;
+  font:500 13px/1.4 'Montserrat',sans-serif;
+}
+select {
+  appearance:none;
+  -webkit-appearance:none;
+  padding-right:58px;
+  background-color:rgba(246,241,233,.10);
+  background-image:url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23fffaf3' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 22px center;
+  background-size:16px 16px;
+}
+textarea {
+  min-height:188px;
+  padding-top:18px;
+  resize:vertical;
+}
+input::placeholder,
+textarea::placeholder { color:rgba(255,250,243,.42); }
+select option {
+  background:#241f1a;
+  color:#fffaf3;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color:rgba(191,44,66,.7);
+  box-shadow:0 0 0 3px rgba(191,44,66,.12);
+}
+.form-note {
+  grid-column:1 / -1;
+  color:var(--dim);
+  font-size:11px;
+  line-height:1.7;
+  padding:2px 0 4px;
+}
+.contact-form .btn {
+  grid-column:1 / -1;
+  width:100%;
+  margin-top:4px;
+}
+
+footer {
+  padding:72px 5% 28px;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(246,241,233,.08), transparent 28%),
+    linear-gradient(135deg,#1c1916,#28231e 58%,#1a1513);
+  border-top:1px solid var(--border);
+}
+.ft-inner { max-width:1280px; margin:0 auto; }
+.ft-grid {
+  display:grid;
+  grid-template-columns:1.4fr .9fr 1fr;
+  gap:44px;
+  padding-bottom:44px;
+}
+.ft-brand img {
+  width:110px;
+  margin-bottom:18px;
+  filter:drop-shadow(0 0 14px rgba(191,44,66,.25));
+}
+.ft-brand p,
+.ft-col li,
+.ct-row {
+  color:var(--dim);
+  font-size:12px;
+  line-height:1.75;
+}
+.ft-social { display:flex; gap:10px; margin-top:20px; }
+.ft-soc {
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--border);
+  color:var(--muted);
+}
+.ft-col h5 {
+  margin-bottom:22px;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:10px;
+  letter-spacing:.22em;
+}
+.ft-col ul { list-style:none; }
+.ft-col li { margin-bottom:12px; }
+.ft-col a { color:inherit; text-decoration:none; transition:color .25s; }
+.ft-col a:hover { color:#fff; }
+.ct-row {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:14px;
+}
+.ct-row svg {
+  width:16px;
+  height:16px;
+  color:var(--crimson);
+  flex-shrink:0;
+}
+.ft-bottom {
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:24px;
+  border-top:1px solid var(--border);
+  color:var(--dim);
+  font-size:11px;
+}
+.ft-bottom a { color:var(--crimson); text-decoration:none; }
+
+@media(max-width:1050px) {
+  .nav-links { display:none; }
+  .mobile-menu-trigger { display:flex; }
+  nav {
+    height:84px;
+    padding:0 6%;
+    background:rgba(17,16,15,.97);
+  }
+  .nav-logo img { height:64px; }
+  .page-hero {
+    min-height:auto;
+    padding:124px 6% 64px;
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+  .contact-shell,
+  .ft-grid { grid-template-columns:1fr; }
+  .form-panel {
+    max-width:none;
+    margin-left:0;
+  }
+}
+
+@media(max-width:700px) {
+  .page-hero {
+    padding-top:116px;
+    background:
+      radial-gradient(circle at 50% 28%, rgba(244,238,229,.12), transparent 31%),
+      radial-gradient(circle at 58% 58%, rgba(191,44,66,.20), transparent 42%),
+      linear-gradient(180deg,#100d0b 0%,#2a201b 52%,#11100e 100%);
+  }
+  h1 {
+    font-size:clamp(43px,14vw,62px);
+    line-height:.95;
+  }
+  .lead {
+    font-size:13px;
+    line-height:1.9;
+  }
+  .hero-actions,
+  .contact-form {
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .btn {
+    width:100%;
+    min-width:0;
+    min-height:58px;
+  }
+  .quick-grid { grid-template-columns:1fr; }
+  .panel-top,
+  .quick-card,
+  .form-panel { padding:26px 22px; }
+  .support-card a {
+    flex-direction:column;
+    gap:4px;
+  }
+  .contact-section { padding:72px 6% 88px; }
+  .contact-intro h2 {
+    font-size:clamp(35px,11vw,48px);
+  }
+  .ft-bottom {
+    flex-direction:column;
+  }
+}
+
+/* Contact page alignment refinement. */
+.support-card a .support-phone {
+  letter-spacing:.01em;
+}
+
+.support-card .support-name {
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.quick-card.support-line a {
+  font-family:'Montserrat',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.45;
+  letter-spacing:.03em;
+}
+
+.quick-card.support-line small {
+  color:var(--muted);
+}
+
+.quick-card.client-support a {
+  display:block;
+  font-family:'Montserrat',sans-serif;
+  line-height:1.35;
+}
+
+.quick-card.client-support a strong {
+  display:block;
+  color:var(--text);
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(20px,1.65vw,26px);
+  font-weight:800;
+  letter-spacing:.04em;
+  line-height:1.1;
+}
+
+.quick-card.client-support a em {
+  display:block;
+  margin-top:10px;
+  color:var(--muted);
+  font-style:normal;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.6;
+}
+
+.quick-card.client-support a em b {
+  color:var(--text);
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+@media(max-width:700px) {
+  .contact-form {
+    gap:16px;
+  }
+
+  input,
+  select {
+    min-height:58px;
+  }
+
+  select {
+    padding-right:50px;
+    background-position:right 18px center;
+  }
+
+  textarea {
+    min-height:150px;
+  }
+
+  .form-note {
+    font-size:10.5px;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html#home" class="nav-logo" aria-label="Rare Miles home">
+    <img src="assets/rm-logo-wide.png" alt="Rare Miles Autos & Logistics">
+  </a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="book-a-ride.html">Book a Ride</a></li>
+    <li><a href="membership.html">Membership</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="book-a-ride.html#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="index.html#home">Home</a>
+  <a href="about.html">About</a>
+  <a href="book-a-ride.html">Book a Ride</a>
+  <a href="membership.html">Membership</a>
+  <a href="contact.html">Contact</a>
+  <a href="book-a-ride.html#booking">Book Now</a>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Contact Rare Miles</div>
+      <h1>Speak with <span>the concierge.</span></h1>
+      <p class="lead">For bookings, memberships, maintenance, partnerships, or general enquiries, send us a message and the Rare Miles team will respond with the next steps.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/2349078771256?text=Hello%2C%20I%27d%20like%20to%20contact%20Rare%20Miles." target="_blank">Message on WhatsApp</a>
+        <a class="btn btn-secondary" href="book-a-ride.html#booking">Book a Trip</a>
+      </div>
+    </div>
+    <aside class="contact-panel" aria-label="Rare Miles contact details">
+      <div class="panel-top">
+        <h2>Direct lines for rare movement.</h2>
+        <p>Use WhatsApp for the fastest response. For formal requests, send your details through the enquiry form below.</p>
+      </div>
+      <div class="quick-grid">
+        <div class="quick-card client-support">
+          <span>Client Support</span>
+          <a href="https://wa.me/2349078771256" target="_blank">
+            <strong>09078771256</strong>
+            <em><b>Abigail</b> · Booking support and follow-up.</em>
+          </a>
+        </div>
+        <div class="quick-card client-support">
+          <span>Client Support</span>
+          <a href="https://wa.me/2347040852832" target="_blank">
+            <strong>0704 085 2832</strong>
+            <em><b>Mayowa</b> · Sales, membership, and enquiries.</em>
+          </a>
+        </div>
+        <div class="quick-card">
+          <span>Email</span>
+          <a href="mailto:hello@raremiles.com">hello@raremiles.com</a>
+          <small>For partnerships, memberships, and formal enquiries.</small>
+        </div>
+        <div class="quick-card">
+          <span>Base</span>
+          <strong>Lagos, Nigeria</strong>
+          <small>Premium mobility across selected Island routes.</small>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-shell">
+      <div class="contact-intro">
+        <div class="section-label">Send an Enquiry</div>
+        <h2>Tell us what you need. We will handle the details.</h2>
+        <p>Send us a message.</p>
+      </div>
+      <div class="form-panel">
+        <form class="contact-form" id="contactForm">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" placeholder="+234..." required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com">
+          </div>
+          <div class="field">
+            <label for="type">Enquiry Type</label>
+            <select id="type" name="type" required>
+              <option value="">Select one</option>
+              <option>Book a Ride</option>
+              <option>Membership</option>
+              <option>Automotive Maintenance</option>
+              <option>Partnership</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Share the request, preferred date, route, vehicle, or membership interest." required></textarea>
+          </div>
+          <p class="form-note">Submitting opens WhatsApp with your enquiry pre-filled. Please review and send the message there.</p>
+          <button class="btn btn-primary" type="submit">Send a Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="ft-inner">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <img src="assets/rm-logo-wide.png" alt="Rare Miles">
+        <p>Lagos' premium chauffeur-led G-Wagon trip experience, paired with bespoke automotive maintenance.</p>
+        <div class="ft-social">
+          <a href="#" class="ft-soc" aria-label="Instagram"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/2349078771256" target="_blank" class="ft-soc" aria-label="WhatsApp"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/></svg></a>
+          <a href="#" class="ft-soc" aria-label="X"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4l16 16M20 4 4 20"/></svg></a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="book-a-ride.html">Book a Ride</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.06-6.06A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>09078771256</span></div>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>hello@raremiles.com</span></div>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lagos, Nigeria</span></div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2026 Rare Miles Autos &amp; Logistics. All rights reserved.</p>
+      <p>Built with <a href="#">excellence</a> in Lagos.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const trigger = document.getElementById('mobileMenuTrigger');
+const menu = document.getElementById('mob');
+if (trigger && menu) {
+  trigger.addEventListener('click', () => {
+    trigger.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      trigger.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+}
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    const lines = [
+      'Hello Rare Miles, I would like to make an enquiry.',
+      '',
+      `Name: ${data.get('name') || ''}`,
+      `Phone: ${data.get('phone') || ''}`,
+      `Email: ${data.get('email') || 'Not provided'}`,
+      `Enquiry Type: ${data.get('type') || ''}`,
+      '',
+      `Message: ${data.get('message') || ''}`
+    ];
+    const whatsappUrl = `https://wa.me/2349078771256?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.open(whatsappUrl, '_blank');
+  });
+}
+</script>
+</body>
+</html>
