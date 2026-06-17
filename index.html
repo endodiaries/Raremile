@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -568,7 +569,7 @@ nav.scrolled { background:rgba(8,8,8,.95); backdrop-filter:blur(22px); border-bo
 ───────────────────────────────────────── */
 footer { background:var(--charcoal); border-top:1px solid var(--border); padding:68px 5% 36px; }
 .ft-inner { max-width:1280px; margin:0 auto; }
-.ft-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:56px; margin-bottom:52px; }
+.ft-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:56px; margin-bottom:52px; }
 .ft-brand img { height:52px; margin-bottom:20px; object-fit:contain; display:block; }
 .ft-brand p { font-size:12.5px; font-weight:300; color:var(--text-muted); line-height:1.9; margin-bottom:24px; max-width:260px; }
 .ft-social { display:flex; gap:10px; }
@@ -958,9 +959,560 @@ footer {
     gap:12px;
     margin-top:26px;
   }
-  #booking .booking-form {
+#booking .booking-form {
     grid-template-columns:1fr;
     padding:22px;
+  }
+}
+/* Mobile polish pass: restore a centered, controlled hero instead of competing layers. */
+@media(max-width:1100px) {
+  body {
+    background:
+      radial-gradient(circle at 50% 18%, rgba(244,238,229,.12), transparent 32%),
+      radial-gradient(circle at 52% 58%, rgba(191,44,66,.22), transparent 36%),
+      linear-gradient(180deg,#100d0b 0%,#271c18 48%,#120f0d 100%);
+  }
+
+  nav {
+    height:84px !important;
+    padding:0 6% !important;
+    background:rgba(12,10,9,.96) !important;
+  }
+
+  .nav-logo img {
+    height:58px;
+  }
+
+  .mobile-menu-trigger {
+    top:29px !important;
+    right:6% !important;
+    left:auto !important;
+    width:34px !important;
+    height:28px !important;
+  }
+
+  .mobile-menu-trigger span {
+    width:32px !important;
+    height:3px !important;
+  }
+
+  .hero {
+    height:auto;
+    min-height:0;
+    display:block;
+    padding:0;
+    overflow:hidden;
+    background:
+      radial-gradient(circle at 72% 28%, rgba(191,44,66,.2), transparent 34%),
+      linear-gradient(180deg,#130f0d 0%,#2c201b 52%,#12100e 100%);
+  }
+
+  .hero-grad-left,
+  .hero-grad-bottom {
+    display:none;
+  }
+
+  .hero-bloom {
+    opacity:.72;
+    background:radial-gradient(ellipse 75% 48% at 50% 44%, rgba(201,168,76,.18), rgba(191,44,66,.16) 42%, transparent 76%);
+  }
+
+  .hero-showpiece {
+    top:108px;
+    right:-34%;
+    bottom:auto;
+    width:108vw;
+    opacity:.38;
+    transform:none;
+  }
+
+  .hero-car-ring {
+    opacity:.24;
+  }
+
+  .hero-body {
+    min-height:calc(100svh - 84px);
+    padding:330px 6% 58px;
+    align-items:center;
+    text-align:center;
+    justify-content:flex-start;
+  }
+
+  .hero-eyebrow {
+    justify-content:center;
+    gap:12px;
+    margin-bottom:24px;
+    width:100%;
+  }
+
+  .eyebrow-rule {
+    width:38px;
+  }
+
+  .eyebrow-text {
+    font-size:8.5px;
+    letter-spacing:.28em;
+    white-space:normal;
+  }
+
+  .hero-headline {
+    width:100%;
+    max-width:360px;
+    font-size:clamp(46px,14vw,62px);
+    line-height:.92;
+    margin:0 auto 26px;
+  }
+
+  .hl-bot {
+    font-size:.32em;
+    letter-spacing:.18em;
+    margin-top:.52em;
+  }
+
+  .hero-desc {
+    max-width:340px;
+    margin:0 auto 42px;
+    font-size:12.5px;
+    line-height:1.85;
+    letter-spacing:.045em;
+  }
+
+  .hero-ctas {
+    width:100%;
+    max-width:352px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+  }
+
+  .btn-fill,
+  .btn-ghost {
+    width:100%;
+    min-height:58px;
+    justify-content:center;
+    padding:18px 20px;
+    text-align:center;
+  }
+}
+
+@media(max-width:390px) {
+  .hero-showpiece {
+    top:112px;
+    right:-45%;
+    width:118vw;
+  }
+
+  .hero-body {
+    padding-top:315px;
+  }
+
+  .hero-headline {
+    font-size:clamp(42px,13.6vw,56px);
+  }
+}
+
+/* Final mobile layout guard: prevent viewport spill and calm the homepage sections. */
+@media(max-width:1100px) {
+  html,
+  body {
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 50% 18%, rgba(244,238,229,.12), transparent 31%),
+      radial-gradient(circle at 50% 56%, rgba(191,44,66,.2), transparent 42%),
+      linear-gradient(180deg,#100d0b 0%,#2a201b 50%,#11100e 100%);
+  }
+
+  nav {
+    height:84px !important;
+    padding:0 6% !important;
+    background:rgba(12,10,9,.97) !important;
+  }
+
+  .hero,
+  .about-wrap,
+  .svc-section,
+  .fleet-wrap,
+  .mem-section,
+  .trust-section,
+  footer {
+    width:100%;
+    max-width:100vw;
+    overflow:hidden;
+  }
+
+  .hero {
+    height:auto;
+    min-height:0;
+    display:block;
+    background:
+      radial-gradient(circle at 66% 28%, rgba(191,44,66,.2), transparent 32%),
+      linear-gradient(180deg,#120f0d 0%,#2d211c 54%,#12100e 100%);
+  }
+
+  .hero-showpiece {
+    top:108px;
+    right:-40%;
+    bottom:auto;
+    width:112vw;
+    max-width:none;
+    opacity:.36;
+  }
+
+  .hero-body {
+    width:100%;
+    max-width:100%;
+    min-height:calc(100svh - 84px);
+    padding:320px 0 58px;
+    align-items:flex-start;
+    justify-content:flex-start;
+    text-align:left;
+    overflow:hidden;
+  }
+
+  .hero-eyebrow,
+  .s-label {
+    justify-content:flex-start;
+  }
+
+  .hero-headline {
+    width:min(360px, calc(100vw - 48px));
+    max-width:calc(100vw - 48px);
+    margin-left:max(24px, 6vw);
+    margin-right:0;
+    font-size:clamp(44px,13.5vw,60px);
+  }
+
+  .hero-desc {
+    width:min(340px, calc(100vw - 48px));
+    max-width:calc(100vw - 48px);
+    margin-left:max(24px, 6vw);
+    margin-right:0;
+    overflow-wrap:break-word;
+  }
+
+  .hero-ctas,
+  .cta-acts {
+    width:min(352px, calc(100vw - 48px));
+    max-width:calc(100vw - 48px);
+    margin-left:max(24px, 6vw);
+    margin-right:0;
+    align-items:stretch;
+  }
+
+  .btn-fill,
+  .btn-ghost,
+  .btn-p,
+  .btn-s {
+    width:100%;
+    max-width:100%;
+    min-height:58px;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .about-wrap {
+    padding:72px 6%;
+    background:
+      radial-gradient(circle at 50% 22%, rgba(244,238,229,.12), transparent 30%),
+      linear-gradient(180deg, rgba(58,48,40,.92), rgba(27,22,19,.98));
+  }
+
+  .about-grid {
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+    width:100%;
+  }
+
+  .about-vis {
+    width:100%;
+    max-width:330px;
+    margin:0 auto;
+  }
+
+  .about-text {
+    width:min(352px, calc(100vw - 48px));
+    max-width:calc(100vw - 48px);
+    margin:0 0 0 max(24px, 6vw);
+    text-align:left;
+  }
+
+  .about-text .s-title,
+  .svc-hdr .s-title,
+  .fleet-hdr .s-title,
+  .mem-text .s-title {
+    font-size:clamp(34px,10vw,46px);
+    line-height:1.04;
+    max-width:100%;
+  }
+
+  .about-text p,
+  .svc-sub,
+  .fleet-hdr p,
+  .mem-text > p {
+    max-width:100%;
+    font-size:13px;
+    line-height:1.85;
+    letter-spacing:.025em;
+    overflow-wrap:break-word;
+  }
+
+  .a-values {
+    grid-template-columns:1fr;
+    max-width:300px;
+    margin:30px auto 0;
+    text-align:left;
+  }
+
+  .svc-hdr,
+  .fleet-hdr,
+  .mem-layout,
+  .trust-inner,
+  .ft-grid {
+    width:100%;
+    max-width:100%;
+  }
+}
+
+@media(max-width:390px) {
+  .hero-showpiece {
+    top:104px;
+    right:-48%;
+    width:122vw;
+  }
+
+  .hero-body {
+    padding-top:306px;
+  }
+
+  .about-wrap,
+  .svc-section,
+  .fleet-wrap,
+  .mem-section {
+    padding-left:6%;
+    padding-right:6%;
+  }
+}
+
+/* Final uniform palette: cleaner warm-charcoal luxury across every page. */
+:root {
+  --obsidian:#11100f;
+  --charcoal:#1c1916;
+  --card:#2d2722;
+  --card-mid:#3a312a;
+  --border:rgba(246,241,233,.16);
+  --border-red:rgba(191,44,66,.38);
+  --text-primary:#fffaf3;
+  --text-sec:#d8cec2;
+  --text-muted:#91877c;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(246,241,233,.12), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(191,44,66,.18), transparent 34%),
+    radial-gradient(circle at 18% 92%, rgba(201,168,76,.10), transparent 32%),
+    linear-gradient(135deg,#11100f 0%,#25201b 48%,#171310 100%) !important;
+}
+
+nav,
+nav.scrolled {
+  background:rgba(17,16,15,.94) !important;
+  border-bottom-color:rgba(246,241,233,.14) !important;
+}
+
+.mob-menu {
+  background:rgba(17,16,15,.98) !important;
+}
+
+.hero {
+  background:
+    radial-gradient(ellipse at 76% 58%, rgba(191,44,66,.25), transparent 52%),
+    radial-gradient(ellipse at 62% 84%, rgba(201,168,76,.13), transparent 45%),
+    linear-gradient(105deg,#11100f 0%,#191614 48%,#211a17 100%) !important;
+}
+
+.hero-grad-left {
+  background:linear-gradient(105deg, rgba(17,16,15,.96) 0%, rgba(17,16,15,.86) 34%, rgba(17,16,15,.44) 62%, rgba(17,16,15,.18) 100%) !important;
+}
+
+.hero-grad-bottom {
+  background:linear-gradient(to top, rgba(17,16,15,.9) 0%, rgba(17,16,15,.28) 46%, transparent 100%) !important;
+}
+
+.hero-bloom {
+  background:radial-gradient(ellipse 62% 48% at 74% 56%, rgba(201,168,76,.15), rgba(191,44,66,.14) 38%, transparent 72%) !important;
+}
+
+.marquee-strip,
+.svc-section,
+.mem-section,
+footer {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(246,241,233,.08), transparent 28%),
+    linear-gradient(135deg,#1c1916,#28231e 58%,#1a1513) !important;
+}
+
+.about-wrap,
+.fleet-wrap,
+.trust-section {
+  background:
+    radial-gradient(circle at 85% 18%, rgba(191,44,66,.11), transparent 30%),
+    linear-gradient(135deg,#151311,#231e1a 58%,#171310) !important;
+}
+
+.svc-card,
+.fleet-card,
+.booking-panel,
+.m-card,
+.t-row,
+.success-card,
+.a-stat,
+.tr-ico {
+  background:
+    linear-gradient(145deg, rgba(246,241,233,.10), rgba(246,241,233,.025)),
+    rgba(45,39,34,.94) !important;
+  border-color:rgba(246,241,233,.18) !important;
+}
+
+.field input,
+.field select,
+.field textarea {
+  background:rgba(246,241,233,.10) !important;
+  border-color:rgba(246,241,233,.24) !important;
+  color:#fffaf3 !important;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color:rgba(255,250,243,.48) !important;
+}
+
+.field select option {
+  background:#241f1a !important;
+  color:#fffaf3 !important;
+}
+
+/* Homepage alignment pass: the booking flow now lives on the standalone page. */
+.fleet-wrap {
+  padding:108px 5% 92px !important;
+}
+
+.fleet-inner {
+  max-width:1260px !important;
+}
+
+.fleet-hdr {
+  max-width:720px !important;
+  margin:0 auto 48px !important;
+}
+
+.fleet-grid {
+  gap:28px !important;
+  align-items:stretch !important;
+}
+
+.fleet-card {
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:100% !important;
+}
+
+.fleet-img {
+  aspect-ratio:16 / 10 !important;
+}
+
+.fleet-body {
+  flex:1 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  padding:34px !important;
+}
+
+.f-price {
+  margin-top:auto !important;
+  align-items:flex-end !important;
+}
+
+.trust-section {
+  padding:72px 5% !important;
+}
+
+.cta-banner {
+  max-width:1280px !important;
+  margin:0 auto 88px !important;
+}
+
+@media(max-width:1100px) {
+  .fleet-wrap {
+    padding:76px 6% 68px !important;
+  }
+
+  .fleet-hdr {
+    width:min(352px, calc(100vw - 48px)) !important;
+    max-width:calc(100vw - 48px) !important;
+    margin:0 0 34px max(24px, 6vw) !important;
+    text-align:left !important;
+  }
+
+  .fleet-hdr .s-label {
+    justify-content:flex-start !important;
+  }
+
+  .fleet-hdr .s-label::after {
+    display:none !important;
+  }
+
+  .fleet-grid {
+    width:min(352px, calc(100vw - 48px)) !important;
+    max-width:calc(100vw - 48px) !important;
+    margin:0 0 0 max(24px, 6vw) !important;
+    gap:22px !important;
+  }
+
+  .fleet-body {
+    padding:26px 22px !important;
+  }
+
+  .f-price {
+    align-items:stretch !important;
+  }
+
+  .fleet-btn {
+    width:100% !important;
+    justify-content:center !important;
+  }
+
+  .trust-section {
+    padding:64px 6% !important;
+  }
+
+  .trust-inner {
+    width:min(352px, calc(100vw - 48px)) !important;
+    margin:0 0 0 max(24px, 6vw) !important;
+  }
+
+  .cta-banner {
+    width:min(352px, calc(100vw - 48px)) !important;
+    margin:0 0 72px max(24px, 6vw) !important;
+    padding:34px 22px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    text-align:left !important;
+  }
+
+  .cta-acts {
+    width:100% !important;
+    margin:0 !important;
   }
 }
 </style>
@@ -979,7 +1531,7 @@ footer {
     <li><a href="about.html">About</a></li>
     <li><a href="book-a-ride.html">Book a Ride</a></li>
     <li><a href="membership.html">Membership</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
     <li><a href="book-a-ride.html#booking" class="nav-cta">Book Now</a></li>
   </ul>
   <a href="book-a-ride.html#booking" class="mobile-nav-book">Book</a>
@@ -994,7 +1546,7 @@ footer {
   <a href="about.html" onclick="closeMob()">About</a>
   <a href="book-a-ride.html" onclick="closeMob()">Book a Ride</a>
   <a href="membership.html" onclick="closeMob()">Membership</a>
-  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
   <a href="book-a-ride.html#booking" onclick="closeMob()">Book Now</a>
 </div>
 
@@ -1032,7 +1584,7 @@ footer {
     </p>
 
     <div class="hero-ctas">
-      <a href="#booking" class="btn-fill">
+      <a href="book-a-ride.html#booking" class="btn-fill">
         Book Your Trip
         <svg width="16" height="16" fill="none" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.5"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25"/></svg>
       </a>
@@ -1055,14 +1607,14 @@ footer {
     <div class="m-item"><div class="m-dot"></div>Mercedes-Benz G-Wagon</div>
     <div class="m-item"><div class="m-dot"></div>Return Transfer</div>
     <div class="m-item"><div class="m-dot"></div>Luxury Trip Booking Lagos</div>
-    <div class="m-item"><div class="m-dot"></div>Diamond Membership</div>
+    <div class="m-item"><div class="m-dot"></div>Gold Elite Membership</div>
     <div class="m-item"><div class="m-dot"></div>Automotive Maintenance</div>
     <div class="m-item"><div class="m-dot"></div>White-Glove Service</div>
     <div class="m-item"><div class="m-dot"></div>One Way ₦100,000 &middot; Return ₦180,000</div>
     <div class="m-item"><div class="m-dot"></div>Mercedes-Benz G-Wagon</div>
     <div class="m-item"><div class="m-dot"></div>Return Transfer</div>
     <div class="m-item"><div class="m-dot"></div>Luxury Trip Booking Lagos</div>
-    <div class="m-item"><div class="m-dot"></div>Diamond Membership</div>
+    <div class="m-item"><div class="m-dot"></div>Gold Elite Membership</div>
     <div class="m-item"><div class="m-dot"></div>Automotive Maintenance</div>
     <div class="m-item"><div class="m-dot"></div>White-Glove Service</div>
     <div class="m-item"><div class="m-dot"></div>One Way ₦100,000 &middot; Return ₦180,000</div>
@@ -1115,13 +1667,13 @@ footer {
         <svg class="svc-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 34V24l5-12h26l5 12v10M6 34h36M6 34v6h6v-6M36 34v6h6v-6"/><circle cx="16" cy="34" r="4"/><circle cx="32" cy="34" r="4"/><path d="M6 24h36"/></svg>
         <h3 class="svc-t">Luxury Trip Booking</h3>
         <p class="svc-d">Reserve a chauffeured G-Wagon for one-way or return transfers to selected Lagos destinations.</p>
-        <a href="#booking" class="svc-lnk">Book Now <svg width="13" height="13" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
+        <a href="book-a-ride.html#booking" class="svc-lnk">Book Now <svg width="13" height="13" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
       </div>
       <div class="svc-card reveal rd1">
         <div class="svc-num">02</div>
         <svg class="svc-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="8"/><path d="M24 6v4M24 38v4M6 24h4M38 24h4"/></svg>
         <h3 class="svc-t">Membership Plans</h3>
-        <p class="svc-d">Gold, Platinum, and Diamond tiers offering exclusive discounts, priority booking, and VIP perks year-round.</p>
+        <p class="svc-d">Diamond, Platinum, and Gold Elite tiers offering exclusive discounts, priority booking, and VIP perks year-round.</p>
         <a href="membership.html" class="svc-lnk">Join Now <svg width="13" height="13" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
       </div>
       <div class="svc-card reveal rd2">
@@ -1141,7 +1693,7 @@ footer {
     <div class="fleet-hdr reveal">
       <div class="s-label">Our Fleet</div>
       <h2 class="s-title">Icons of the Road</h2>
-      <p>Choose a chauffeured G-Wagon trip package and reserve directly on this page.</p>
+      <p>Choose a chauffeured G-Wagon trip package and continue on the booking page.</p>
     </div>
     <div class="fleet-grid">
       <div class="fleet-card reveal">
@@ -1159,7 +1711,7 @@ footer {
           </div>
           <div class="f-price">
             <div><div><span class="p-main">₦100k</span><span class="p-unit">/trip</span></div><div class="p-alt">One Way · Island coverage</div></div>
-            <a href="#booking" class="fleet-btn">Book Now <svg width="12" height="12" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
+            <a href="book-a-ride.html#booking" class="fleet-btn">Book Now <svg width="12" height="12" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
           </div>
         </div>
       </div>
@@ -1177,97 +1729,10 @@ footer {
           </div>
           <div class="f-price">
             <div><div><span class="p-main">₦180k</span><span class="p-unit">/return</span></div><div class="p-alt">Pickup + drop-off · 30-min wait cap</div></div>
-            <a href="#booking" class="fleet-btn">Book Now <svg width="12" height="12" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
+            <a href="book-a-ride.html#booking" class="fleet-btn">Book Now <svg width="12" height="12" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="1.5"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
           </div>
         </div>
       </div>
-    </div>
-    <div class="booking-panel reveal rd2" id="booking">
-      <div class="booking-copy">
-        <div class="s-label">Reserve Online</div>
-        <h3>Book the Rare Miles G-Wagon for your next Lagos arrival.</h3>
-        <p>Choose a one-way or return chauffeured transfer across selected Island destinations. Payment is handled securely online, then our concierge continues the booking on WhatsApp.</p>
-        <div class="booking-points">
-          <div class="booking-point">One Way: ₦100,000</div>
-          <div class="booking-point">Return Transfer: ₦180,000</div>
-          <div class="booking-point">Start zones: Lekki, Ikoyi & Victoria Island</div>
-          <div class="booking-point">Zone limit: Orchid</div>
-          <div class="booking-point">Chauffeur wait limit: 30 minutes</div>
-          <div class="booking-point">Maximum driving time: 45 minutes</div>
-        </div>
-      </div>
-      <form class="booking-form" id="bookingForm">
-        <div class="field">
-          <label for="guestName">Full Name</label>
-          <input id="guestName" name="name" type="text" placeholder="Your name" required>
-        </div>
-        <div class="field">
-          <label for="guestPhone">Phone / WhatsApp</label>
-          <input id="guestPhone" name="phone" type="tel" placeholder="+234..." required>
-        </div>
-        <div class="field">
-          <label for="guestEmail">Email</label>
-          <input id="guestEmail" name="email" type="email" placeholder="you@email.com" required>
-        </div>
-        <div class="field">
-          <label for="tripPackage">Trip Package</label>
-          <select id="tripPackage" name="package" required>
-            <option value="100000" data-name="One Way" data-payment-url="https://flutterwave.com/pay/7sswpwjebm2z">One Way - ₦100,000</option>
-            <option value="180000" data-name="Return Transfer" data-payment-url="https://flutterwave.com/pay/060lwwtmq1ph">Return Transfer - ₦180,000</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="startArea">Start Area</label>
-          <select id="startArea" name="start_area" required>
-            <option value="Lekki">Lekki</option>
-            <option value="Ikoyi">Ikoyi</option>
-            <option value="Victoria Island">Victoria Island</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="tripDestination">Destination</label>
-          <select id="tripDestination" name="destination" required>
-            <option value="FOMO">FOMO</option>
-            <option value="Boho">Boho</option>
-            <option value="The Smiths">The Smiths</option>
-            <option value="Zaza">Zaza</option>
-            <option value="Lulu's">Lulu's</option>
-            <option value="The Library">The Library</option>
-            <option value="The Garden">The Garden</option>
-            <option value="Mako">Mako</option>
-            <option value="Ikoyi Boat Club">Ikoyi Boat Club</option>
-            <option value="Jet Ski Club">Jet Ski Club</option>
-            <option value="Pitstop">Pitstop</option>
-            <option value="Phoenix">Phoenix</option>
-            <option value="RSVP">RSVP</option>
-            <option value="Shiro Lagos">Shiro Lagos</option>
-            <option value="Cactus Restaurant">Cactus Restaurant</option>
-            <option value="THE LAGOON">THE LAGOON</option>
-            <option value="W Bar Lounge">W Bar Lounge</option>
-            <option value="Shades Social">Shades Social</option>
-            <option value="The Long Bar Lagos">The Long Bar Lagos</option>
-            <option value="Lagos Irish Pub">Lagos Irish Pub</option>
-            <option value="Vaniti Lagos">Vaniti Lagos</option>
-            <option value="Club 57">Club 57</option>
-            <option value="Rumors Night Club">Rumors Night Club</option>
-            <option value="De Crib Night Club">De Crib Night Club</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="pickupTime">Pickup Date & Time</label>
-          <input id="pickupTime" name="pickup" type="datetime-local" required>
-        </div>
-        <div class="field full">
-          <label for="tripNote">Special Request</label>
-          <textarea id="tripNote" name="note" placeholder="Pickup address, guest count, or concierge note"></textarea>
-        </div>
-        <div class="booking-total">
-          <span>Payment Due</span>
-          <strong id="bookingTotal">₦100,000</strong>
-        </div>
-        <button type="submit" class="btn-p pay-btn">Pay & Reserve <svg style="width:16px;height:16px;margin-left:8px;" fill="none" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.5"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25"/></svg></button>
-        <p class="pay-note">One-way and return-transfer bookings continue through secure Flutterwave checkout, then WhatsApp confirmation.</p>
-      </form>
     </div>
   </div>
 </div>
@@ -1282,14 +1747,14 @@ footer {
         <p class="reveal rd2">Join the Rare Miles membership and unlock a world of privileges, from rental discounts to priority booking and premium automotive services.</p>
         <a href="membership.html" class="btn-p reveal rd3" style="display:inline-flex;">View All Plans <svg style="width:16px;height:16px;margin-left:8px;" fill="none" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.5"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25"/></svg></a>
         <div class="tiers">
-          <div class="t-row gold reveal rd2"><div><div class="t-name">Gold</div><div class="t-lbl">Entry Tier</div></div><div style="text-align:right"><div class="t-pct">5%</div><div class="t-lbl">Rental Discount</div></div></div>
-          <div class="t-row plat reveal rd3"><div><div class="t-name">Platinum</div><div class="t-lbl">Mid Tier</div></div><div style="text-align:right"><div class="t-pct">10%</div><div class="t-lbl">Rental Discount</div></div></div>
-          <div class="t-row diam reveal rd4"><div><div class="t-name">Diamond</div><div class="t-lbl">Elite Tier</div></div><div style="text-align:right"><div class="t-pct">15%</div><div class="t-lbl">Rental Discount</div></div></div>
+          <div class="t-row diam reveal rd2"><div><div class="t-name">Diamond</div><div class="t-lbl">Entry Tier · ₦120k</div></div><div style="text-align:right"><div class="t-pct">5%</div><div class="t-lbl">Rental Discount</div></div></div>
+          <div class="t-row plat reveal rd3"><div><div class="t-name">Platinum</div><div class="t-lbl">Mid Tier · ₦150k</div></div><div style="text-align:right"><div class="t-pct">10%</div><div class="t-lbl">Rental Discount</div></div></div>
+          <div class="t-row gold reveal rd4"><div><div class="t-name">Gold Elite</div><div class="t-lbl">Elite Tier · ₦200k</div></div><div style="text-align:right"><div class="t-pct">15%</div><div class="t-lbl">Rental Discount</div></div></div>
         </div>
       </div>
       <div class="mem-cards">
-        <div class="m-card reveal"><div class="m-badge">🥇</div><div class="m-lbl">Tier 1</div><div class="m-name">Gold</div><div class="m-perks">Priority booking &middot; 5% off all rentals &middot; Basic maintenance package &middot; Monthly newsletter</div></div>
-        <div class="m-card feat reveal rd1"><div class="m-badge">💎</div><div class="m-lbl">Most Exclusive</div><div class="m-name">Diamond</div><div class="m-perks">VIP concierge &middot; 15% off all rentals &middot; Full maintenance suite &middot; Exclusive event access &middot; Chauffeur on demand</div></div>
+        <div class="m-card reveal"><div class="m-badge">D</div><div class="m-lbl">Entry Tier · ₦120k</div><div class="m-name">Diamond</div><div class="m-perks">Routine checks &middot; Emergency diagnostics &middot; Monthly detailing &middot; 5% rental discount</div></div>
+        <div class="m-card feat reveal rd1"><div class="m-badge">G</div><div class="m-lbl">Elite Tier · ₦200k</div><div class="m-name">Gold Elite</div><div class="m-perks">VIP care pathway &middot; 15% rental discount &middot; Courtesy vehicle access &middot; Dedicated mechanic assignment</div></div>
       </div>
     </div>
   </div>
@@ -1313,8 +1778,8 @@ footer {
     <p>Choose your destination, package, and pickup time directly on this website.</p>
   </div>
   <div class="cta-acts">
-    <a href="#booking" class="btn-p">Book Now <svg style="width:16px;height:16px;margin-left:8px;" fill="none" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.5"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25"/></svg></a>
-    <a href="https://wa.me/2349078771256?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20Rare%20Miles%20services." target="_blank" class="btn-s">WhatsApp Us</a>
+    <a href="book-a-ride.html#booking" class="btn-p">Book Now <svg style="width:16px;height:16px;margin-left:8px;" fill="none" viewBox="0 0 18 18" stroke="currentColor" stroke-width="1.5"><path d="M3.75 9h10.5M9 3.75 14.25 9 9 14.25"/></svg></a>
+    <a href="https://wa.me/2349078771256?text=Hello%2C%20I'd%20like%20to%20enquire%20about%20Rare%20Miles%20services." target="_blank" class="btn-s">Send a Message</a>
   </div>
 </div>
 
@@ -1338,16 +1803,7 @@ footer {
           <li><a href="about.html">About</a></li>
           <li><a href="book-a-ride.html">Book a Ride</a></li>
           <li><a href="membership.html">Membership</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="ft-col">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="book-a-ride.html#booking">One-Way Trip</a></li>
-          <li><a href="book-a-ride.html#booking">Return Transfer</a></li>
-          <li><a href="services.html">Maintenance</a></li>
-          <li><a href="membership.html">Membership Plans</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="ft-col">
@@ -1364,18 +1820,6 @@ footer {
   </div>
 </footer>
 
-<div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
-  <div class="success-card">
-    <h3 id="successTitle">Reservation Started.</h3>
-    <p>Your payment was successful. Continue to WhatsApp so our concierge can confirm pickup details and dispatch.</p>
-    <div class="success-actions">
-      <a href="https://wa.me/2349078771256" target="_blank" class="btn-p" id="whatsappRedirect">Continue on WhatsApp</a>
-      <button type="button" class="modal-close" id="modalClose">Close</button>
-    </div>
-  </div>
-</div>
-
-<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
   // CURSOR
   const dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
@@ -1408,104 +1852,6 @@ footer {
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-  // ON-PAGE TRIP BOOKING
-  const PAYSTACK_PUBLIC_KEY='YOUR_PAYSTACK_PUBLIC_KEY';
-  const conciergeWhatsApp='2349078771256';
-  const bookingForm=document.getElementById('bookingForm');
-  const packageSelect=document.getElementById('tripPackage');
-  const bookingTotal=document.getElementById('bookingTotal');
-  const successModal=document.getElementById('successModal');
-  const whatsappRedirect=document.getElementById('whatsappRedirect');
-  const modalClose=document.getElementById('modalClose');
-  const naira=new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0});
-
-  function selectedPackageName(){
-    return packageSelect.options[packageSelect.selectedIndex].dataset.name;
-  }
-  function selectedPaymentUrl(){
-    return packageSelect.options[packageSelect.selectedIndex].dataset.paymentUrl || '';
-  }
-  function updateBookingTotal(){
-    bookingTotal.textContent=naira.format(Number(packageSelect.value));
-  }
-  function buildWhatsAppUrl(reference){
-    const msg=[
-      'Hello Rare Miles, I just paid for a car reservation.',
-      `Name: ${document.getElementById('guestName').value}`,
-      `Email: ${document.getElementById('guestEmail').value}`,
-      `Phone: ${document.getElementById('guestPhone').value}`,
-      'Vehicle: Rare Miles G-Wagon',
-      `Package: ${selectedPackageName()} (${bookingTotal.textContent})`,
-      `Start Area: ${document.getElementById('startArea').value}`,
-      `Destination: ${document.getElementById('tripDestination').value}`,
-      `Pickup: ${document.getElementById('pickupTime').value}`,
-      'Note: Trips are within Lekki, Ikoyi, and Victoria Island up to Orchid. Return chauffeur wait is capped at 30 minutes. A wait-and-move request counts as two one-way trips.',
-      `Reference: ${reference}`
-    ].join('\n');
-    return `https://wa.me/${conciergeWhatsApp}?text=${encodeURIComponent(msg)}`;
-  }
-  function collectBookingDetails(reference='Pending Flutterwave confirmation'){
-    return {
-      name:document.getElementById('guestName').value.trim(),
-      phone:document.getElementById('guestPhone').value.trim(),
-      email:document.getElementById('guestEmail').value.trim(),
-      vehicle:'Rare Miles G-Wagon',
-      package:selectedPackageName(),
-      amount:bookingTotal.textContent,
-      startArea:document.getElementById('startArea').value,
-      destination:document.getElementById('tripDestination').value,
-      pickup:document.getElementById('pickupTime').value,
-      note:document.getElementById('tripNote').value.trim(),
-      reference,
-      source:'homepage',
-      createdAt:new Date().toISOString()
-    };
-  }
-  function savePendingBooking(){
-    localStorage.setItem('rareMilesPendingBooking',JSON.stringify(collectBookingDetails()));
-  }
-  packageSelect.addEventListener('change',updateBookingTotal);
-  updateBookingTotal();
-
-  bookingForm.addEventListener('submit',e=>{
-    e.preventDefault();
-    if(!bookingForm.reportValidity()) return;
-    const paymentUrl=selectedPaymentUrl();
-    if(paymentUrl){
-      savePendingBooking();
-      window.location.href=paymentUrl;
-      return;
-    }
-    if(!window.PaystackPop || PAYSTACK_PUBLIC_KEY==='YOUR_PAYSTACK_PUBLIC_KEY'){
-      alert('This package payment link is not connected yet. Please add the live payment link before accepting this package online.');
-      return;
-    }
-    const amount=Number(packageSelect.value)*100;
-    const handler=PaystackPop.setup({
-      key:PAYSTACK_PUBLIC_KEY,
-      email:document.getElementById('guestEmail').value,
-      amount,
-      currency:'NGN',
-      ref:`RM-${Date.now()}`,
-      metadata:{
-        custom_fields:[
-          {display_name:'Customer Name',variable_name:'customer_name',value:document.getElementById('guestName').value},
-          {display_name:'Phone',variable_name:'phone',value:document.getElementById('guestPhone').value},
-          {display_name:'Trip Package',variable_name:'trip_package',value:selectedPackageName()},
-          {display_name:'Start Area',variable_name:'start_area',value:document.getElementById('startArea').value},
-          {display_name:'Destination',variable_name:'destination',value:document.getElementById('tripDestination').value}
-        ]
-      },
-      callback(response){
-        localStorage.setItem('rareMilesPendingBooking',JSON.stringify(collectBookingDetails(response.reference)));
-        whatsappRedirect.href=buildWhatsAppUrl(response.reference);
-        successModal.classList.add('open');
-      },
-      onClose(){}
-    });
-    handler.openIframe();
-  });
-  modalClose.addEventListener('click',()=>successModal.classList.remove('open'));
 </script>
 </body>
 </html>
