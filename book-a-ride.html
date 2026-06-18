@@ -1676,7 +1676,10 @@ select option {
             <li>Outside zone trips require a long-distance surcharge</li>
           </ul>
         </div>
-        <form class="booking-form" id="bookingForm">
+        <form class="booking-form" id="bookingForm" action="https://formspree.io/f/mnjyrvvn" method="POST">
+          <input type="hidden" name="_subject" value="New Rare Miles booking request">
+          <input type="hidden" id="selectedPackageName" name="package_name" value="One Way">
+          <input type="hidden" id="selectedPackageAmount" name="payment_due" value="NGN 100,000">
           <div class="field">
             <label for="guestName">Full Name</label>
             <input id="guestName" name="name" type="text" placeholder="Your name" required>
@@ -1752,8 +1755,8 @@ select option {
             <span>Payment Due</span>
             <strong id="bookingTotal">₦100,000</strong>
           </div>
-          <button type="submit" class="pay-btn">Pay & Reserve</button>
-          <p class="pay-note">One-way and return-transfer bookings continue through secure Flutterwave checkout, then WhatsApp confirmation.</p>
+          <button type="submit" class="pay-btn">Send Booking Request</button>
+          <p class="pay-note">Your booking details will be sent to Rare Miles for confirmation.</p>
         </form>
       </div>
     </div>
@@ -1828,6 +1831,8 @@ const bookingForm = document.getElementById('bookingForm');
 const vehicleSelect = document.getElementById('vehicleSelect');
 const packageSelect = document.getElementById('tripPackage');
 const bookingTotal = document.getElementById('bookingTotal');
+const selectedPackageNameInput = document.getElementById('selectedPackageName');
+const selectedPackageAmountInput = document.getElementById('selectedPackageAmount');
 const successModal = document.getElementById('successModal');
 const whatsappRedirect = document.getElementById('whatsappRedirect');
 const modalClose = document.getElementById('modalClose');
@@ -1841,6 +1846,8 @@ function selectedPaymentUrl() {
 }
 function updateBookingTotal() {
   bookingTotal.textContent = naira.format(Number(packageSelect.value));
+  selectedPackageNameInput.value = selectedPackageName();
+  selectedPackageAmountInput.value = bookingTotal.textContent;
 }
 function buildWhatsAppUrl(reference) {
   const msg = [
@@ -1889,43 +1896,8 @@ document.querySelectorAll('[data-vehicle]').forEach(button => {
 packageSelect.addEventListener('change', updateBookingTotal);
 updateBookingTotal();
 
-bookingForm.addEventListener('submit', event => {
-  event.preventDefault();
-  if (!bookingForm.reportValidity()) return;
-  const paymentUrl = selectedPaymentUrl();
-  if (paymentUrl) {
-    savePendingBooking();
-    window.location.href = paymentUrl;
-    return;
-  }
-  if (!window.PaystackPop || PAYSTACK_PUBLIC_KEY === 'YOUR_PAYSTACK_PUBLIC_KEY') {
-    alert('This package payment link is not connected yet. Please add the live payment link before accepting this package online.');
-    return;
-  }
-  const handler = PaystackPop.setup({
-    key: PAYSTACK_PUBLIC_KEY,
-    email: document.getElementById('guestEmail').value,
-    amount: Number(packageSelect.value) * 100,
-    currency: 'NGN',
-    ref: `RM-${Date.now()}`,
-    metadata: {
-      custom_fields: [
-        { display_name:'Customer Name', variable_name:'customer_name', value:document.getElementById('guestName').value },
-        { display_name:'Phone', variable_name:'phone', value:document.getElementById('guestPhone').value },
-        { display_name:'Vehicle', variable_name:'vehicle', value:vehicleSelect.value },
-        { display_name:'Trip Package', variable_name:'trip_package', value:selectedPackageName() },
-        { display_name:'Start Area', variable_name:'start_area', value:document.getElementById('startArea').value },
-        { display_name:'Destination', variable_name:'destination', value:document.getElementById('tripDestination').value }
-      ]
-    },
-    callback(response) {
-      localStorage.setItem('rareMilesPendingBooking', JSON.stringify(collectBookingDetails(response.reference)));
-      whatsappRedirect.href = buildWhatsAppUrl(response.reference);
-      successModal.classList.add('open');
-    },
-    onClose() {}
-  });
-  handler.openIframe();
+bookingForm.addEventListener('submit', () => {
+  updateBookingTotal();
 });
 modalClose.addEventListener('click', () => successModal.classList.remove('open'));
 </script>
