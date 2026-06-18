@@ -826,7 +826,7 @@ footer {
         <p>Send us a message.</p>
       </div>
       <div class="form-panel">
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" data-whatsapp="2349078771256">
           <div class="field">
             <label for="name">Full Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required>
@@ -919,18 +919,19 @@ if (contactForm) {
   contactForm.addEventListener('submit', event => {
     event.preventDefault();
     const data = new FormData(contactForm);
+    const whatsappNumber = contactForm.dataset.whatsapp;
     const lines = [
       'Hello Rare Miles, I would like to make an enquiry.',
       '',
-      `Name: ${data.get('name') || ''}`,
-      `Phone: ${data.get('phone') || ''}`,
-      `Email: ${data.get('email') || 'Not provided'}`,
-      `Enquiry Type: ${data.get('type') || ''}`,
+      `Name: ${(data.get('name') || '').trim()}`,
+      `Phone: ${(data.get('phone') || '').trim()}`,
+      `Email: ${(data.get('email') || 'Not provided').trim()}`,
+      `Enquiry Type: ${(data.get('type') || '').trim()}`,
       '',
-      `Message: ${data.get('message') || ''}`
+      `Message: ${(data.get('message') || '').trim()}`
     ];
-    const whatsappUrl = `https://wa.me/2349078771256?text=${encodeURIComponent(lines.join('\n'))}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+    window.location.href = whatsappUrl;
   });
 }
 </script>
