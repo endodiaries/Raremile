@@ -583,8 +583,7 @@ footer {
     font-size:13px;
     line-height:1.9;
   }
-  .hero-actions,
-  .contact-form {
+  .hero-actions {
     display:flex;
     flex-direction:column;
     gap:18px;
@@ -608,6 +607,58 @@ footer {
   }
   .ft-bottom {
     flex-direction:column;
+  }
+
+  /* ===== FIXED MOBILE FORM LAYOUT ===== */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .contact-form .field,
+  .contact-form .field.full {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    min-height: 58px;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .contact-form select {
+    padding-right: 50px;
+    background-position: right 18px center;
+  }
+
+  .contact-form textarea {
+    min-height: 150px;
+    padding-top: 18px;
+    resize: vertical;
+  }
+
+  .contact-form .form-note {
+    width: 100%;
+    font-size: 10.5px;
+    line-height: 1.7;
+    padding: 2px 0 4px;
+    margin: 0;
+  }
+
+  .contact-form .btn {
+    width: 100%;
+    min-width: 0;
+    min-height: 58px;
+    margin-top: 4px;
+    box-sizing: border-box;
   }
 }
 
@@ -695,6 +746,7 @@ footer {
   }
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 <nav>
