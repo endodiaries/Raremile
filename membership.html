@@ -614,12 +614,15 @@ footer {
   }
   .hero-actions {
     flex-direction:column;
-    align-items:flex-start;
+    align-items:stretch;
     width:100%;
-    max-width:238px;
-    gap:12px;
+    gap:14px;
   }
-  .hero-actions .btn { width:100%; }
+  .hero-actions .btn {
+    width:100%;
+    min-height:58px;
+    justify-content:center;
+  }
   .hero-panel {
     padding:26px;
     margin-top:8px;
@@ -872,6 +875,7 @@ footer {
   border-color:rgba(246,241,233,.18) !important;
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 <nav>
@@ -941,7 +945,7 @@ footer {
         <ul class="perks">
           <li><strong>Monthly routine car health maintenance check</strong> for registered vehicles.</li>
           <li><strong>On-demand and emergency mechanic diagnostics</strong> when vehicle support is needed.</li>
-          <li><strong>Complimentary mobile car detailing</strong>: one premium exterior wash and interior vacuuming per month at the client’s home or office.</li>
+          <li><strong>Complimentary mobile car detailing</strong>: one premium exterior wash and interior vacuuming per month at the client's home or office.</li>
           <li><strong>Fluids top-up</strong>: essential coolant, brake fluid, and windshield washer top-ups during monthly checks.</li>
           <li><strong>5% flat discount</strong> on Rare Miles rental bookings.</li>
         </ul>
