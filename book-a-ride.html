@@ -1680,6 +1680,9 @@ select option {
           <input type="hidden" name="_subject" value="New Rare Miles booking request">
           <input type="hidden" id="selectedPackageName" name="package_name" value="One Way">
           <input type="hidden" id="selectedPackageAmount" name="payment_due" value="NGN 100,000">
+          <input type="hidden" id="selectedPaymentProvider" name="payment_provider" value="Flutterwave">
+          <input type="hidden" id="selectedPaymentStatus" name="payment_status" value="Pending payment redirect">
+          <input type="hidden" id="selectedPaymentLink" name="payment_link" value="https://flutterwave.com/pay/7sswpwjebm2z">
           <div class="field">
             <label for="guestName">Full Name</label>
             <input id="guestName" name="name" type="text" placeholder="Your name" required>
@@ -1755,8 +1758,8 @@ select option {
             <span>Payment Due</span>
             <strong id="bookingTotal">₦100,000</strong>
           </div>
-          <button type="submit" class="pay-btn">Send Booking Request</button>
-          <p class="pay-note">Your booking details will be sent to Rare Miles for confirmation.</p>
+          <button type="submit" class="pay-btn">Pay &amp; Reserve</button>
+          <p class="pay-note">Your booking details are sent first, then you will continue to secure Flutterwave payment.</p>
         </form>
       </div>
     </div>
@@ -1833,6 +1836,7 @@ const packageSelect = document.getElementById('tripPackage');
 const bookingTotal = document.getElementById('bookingTotal');
 const selectedPackageNameInput = document.getElementById('selectedPackageName');
 const selectedPackageAmountInput = document.getElementById('selectedPackageAmount');
+const selectedPaymentLinkInput = document.getElementById('selectedPaymentLink');
 const successModal = document.getElementById('successModal');
 const whatsappRedirect = document.getElementById('whatsappRedirect');
 const modalClose = document.getElementById('modalClose');
@@ -1848,6 +1852,7 @@ function updateBookingTotal() {
   bookingTotal.textContent = naira.format(Number(packageSelect.value));
   selectedPackageNameInput.value = selectedPackageName();
   selectedPackageAmountInput.value = bookingTotal.textContent;
+  selectedPaymentLinkInput.value = selectedPaymentUrl();
 }
 function buildWhatsAppUrl(reference) {
   const msg = [
@@ -1886,6 +1891,36 @@ function savePendingBooking() {
   localStorage.removeItem('rareMilesPendingMembership');
   localStorage.setItem('rareMilesPendingBooking', JSON.stringify(collectBookingDetails()));
 }
+function sendBookingToFormspree() {
+  const frameName = 'bookingFormspreeFrame';
+  const frame = document.createElement('iframe');
+  frame.name = frameName;
+  frame.style.display = 'none';
+  document.body.appendChild(frame);
+
+  const mirrorForm = document.createElement('form');
+  mirrorForm.action = bookingForm.action;
+  mirrorForm.method = 'POST';
+  mirrorForm.target = frameName;
+  mirrorForm.style.display = 'none';
+
+  const data = new FormData(bookingForm);
+  data.forEach((value, key) => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    mirrorForm.appendChild(input);
+  });
+
+  document.body.appendChild(mirrorForm);
+  mirrorForm.submit();
+
+  setTimeout(() => {
+    mirrorForm.remove();
+    frame.remove();
+  }, 5000);
+}
 
 document.querySelectorAll('[data-vehicle]').forEach(button => {
   button.addEventListener('click', () => {
@@ -1896,8 +1931,18 @@ document.querySelectorAll('[data-vehicle]').forEach(button => {
 packageSelect.addEventListener('change', updateBookingTotal);
 updateBookingTotal();
 
-bookingForm.addEventListener('submit', () => {
+bookingForm.addEventListener('submit', event => {
+  event.preventDefault();
   updateBookingTotal();
+  const paymentUrl = selectedPaymentUrl();
+  const submitButton = bookingForm.querySelector('.pay-btn');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending details...';
+  savePendingBooking();
+  sendBookingToFormspree();
+  setTimeout(() => {
+    window.location.href = paymentUrl;
+  }, 900);
 });
 modalClose.addEventListener('click', () => successModal.classList.remove('open'));
 </script>
