@@ -7,7 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
+<link rel="icon" type="image/x-icon" href="favicon_io (2)/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io (2)/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io (2)/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io (2)/apple-touch-icon.png">
+<link rel="manifest" href="favicon_io (2)/site.webmanifest">
+   <style>
 /* ─────────────────────────────────────────
    TOKENS
 ───────────────────────────────────────── */
@@ -1515,7 +1520,7 @@ footer {
   }
 }
 
-/* Mobile overflow guard: keep homepage story copy, hero CTAs, and fleet cards inside the screen. */
+/* Mobile overflow guard: keep homepage story copy inside the screen. */
 @media(max-width:768px) {
   html,
   body {
@@ -1527,75 +1532,109 @@ footer {
   .about-wrap {
     width:100% !important;
     max-width:100% !important;
-    padding:64px 24px !important;
+    padding:56px 22px 62px !important;
     overflow:hidden !important;
   }
 
-  .about-grid,
+  .about-grid {
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    gap:28px !important;
+    padding:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  .about-vis {
+    width:100% !important;
+    max-width:100% !important;
+    margin:0 auto !important;
+  }
+
+  .a-frame {
+    width:100% !important;
+    aspect-ratio:16/10 !important;
+    max-height:260px !important;
+    border-radius:2px !important;
+    border:1px solid rgba(246,241,233,.14) !important;
+    box-shadow:0 18px 42px rgba(0,0,0,.28) !important;
+  }
+
+  .a-frame img {
+    transform:scale(1.08) !important;
+    object-position:center 38% !important;
+    filter:saturate(.88) contrast(1.08) brightness(.9) !important;
+  }
+
+  .a-frame::after {
+    background:
+      linear-gradient(180deg, rgba(8,8,8,.06) 0%, rgba(8,8,8,.18) 55%, rgba(8,8,8,.5) 100%),
+      radial-gradient(circle at 50% 48%, transparent 34%, rgba(8,8,8,.28) 100%) !important;
+  }
+
   .about-text {
     width:100% !important;
     max-width:100% !important;
     min-width:0 !important;
-  }
+    }
 
   .about-text {
     margin:0 auto !important;
     padding:0 !important;
     text-align:left !important;
   }
+.about-text .s-title {
+  width:100% !important;
+  max-width:100% !important;
+  font-size:clamp(32px,9.5vw,40px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.02em !important;
+  margin-bottom:18px !important;
+  overflow-wrap:break-word !important;
+  hyphens:auto !important;
+}
 
-  .about-text .s-title {
-    width:100% !important;
-    max-width:100% !important;
-    font-size:clamp(28px,8.2vw,34px) !important;
-    line-height:1.12 !important;
-    letter-spacing:-.035em !important;
-    overflow-wrap:break-word !important;
-  }
-
-  .about-text .s-title span {
-    display:block !important;
-    overflow-wrap:break-word !important;
-    word-break:normal !important;
-  }
+.about-text .s-title span {
+  display:block !important;
+  font-size:.88em !important;
+  color:rgba(246,241,233,.72) !important;
+  overflow-wrap:break-word !important;
+  word-break:normal !important;
+}
 
   .about-text p {
     width:100% !important;
     max-width:100% !important;
-    font-size:12px !important;
-    line-height:1.7 !important;
+    font-size:13.5px !important;
+    line-height:1.82 !important;
     letter-spacing:.02em !important;
+    color:rgba(246,241,233,.78) !important;
     overflow-wrap:break-word !important;
     word-break:normal !important;
   }
 
-  .hero-ctas {
-    width:calc(100vw - 48px) !important;
-    max-width:360px !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
-    display:flex !important;
-    flex-direction:column !important;
-    align-items:stretch !important;
-    justify-content:center !important;
-    gap:14px !important;
-  }
-
-  .btn-fill,
-  .btn-ghost {
-    width:100% !important;
-    max-width:100% !important;
-    min-height:58px !important;
-    justify-content:center !important;
-    text-align:center !important;
-    box-sizing:border-box !important;
-  }
-
   .a-values {
     width:100% !important;
-    max-width:280px !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
+    max-width:100% !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+    margin:26px 0 0 !important;
+  }
+
+  .a-val {
+    min-height:42px !important;
+    padding:12px 14px !important;
+    background:rgba(246,241,233,.055) !important;
+    border:1px solid rgba(246,241,233,.12) !important;
+    color:rgba(246,241,233,.84) !important;
+    font-size:12px !important;
+    letter-spacing:.03em !important;
+  }
+
+  .a-val::before {
+    width:18px !important;
   }
 
   .fleet-wrap {
@@ -1609,7 +1648,7 @@ footer {
   .fleet-hdr,
   .fleet-grid {
     width:100% !important;
-    max-width:360px !important;
+    max-width:100% !important;
     min-width:0 !important;
     margin-left:auto !important;
     margin-right:auto !important;
@@ -1632,8 +1671,6 @@ footer {
     min-width:0 !important;
     overflow:hidden !important;
     box-sizing:border-box !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
   }
 
   .fleet-img {
@@ -1649,7 +1686,6 @@ footer {
     height:100% !important;
     max-width:100% !important;
     object-fit:cover !important;
-    display:block !important;
   }
 
   .fleet-body {
@@ -1802,8 +1838,8 @@ footer {
     <div class="about-text">
       <div class="s-label reveal">Our Story</div>
       <h2 class="s-title reveal rd1">Redefining Luxury<br><span style="font-style:italic;color:var(--text-sec);">On Nigerian Roads</span></h2>
-      <p class="reveal rd2">Rare Miles was born from a simple belief: that Lagos deserves world-class automotive experiences. We combine the finest vehicles with meticulous attention to detail, delivering moments that transcend transportation.</p>
-      <p class="reveal rd3">Whether you're commanding attention at a corporate event, celebrating a milestone, or simply refusing to settle, Rare Miles places you behind the wheel of legend.</p>
+      <p class="reveal rd2">Rare Miles was born from a simple belief: that Lagos
+        deserves <br> world-class automotive experiences. We combine the finest <br> vehicles with meticulous attention to detail, delivering moments that transcend transportation.</p>
       <div class="a-values reveal rd4">
         <div class="a-val">Premium Fleet</div>
         <div class="a-val">Transparent Pricing</div>
@@ -1863,7 +1899,7 @@ footer {
       <div class="fleet-card reveal">
         <div class="fleet-img">
           <div class="fleet-tag">Most Popular</div>
-          <img src="assets/gwagon-showroom-angle.jpeg" alt="Black Mercedes-Benz G-Wagon angled front view">
+         <img src="assets/gwagon-showroom-angle.jpeg" alt="Black Mercedes-Benz G-Wagon angled front view">
         </div>
         <div class="fleet-body">
           <div class="f-model">One-Way Transfer</div>
@@ -1881,7 +1917,7 @@ footer {
       </div>
       <div class="fleet-card reveal rd1">
         <div class="fleet-img">
-          <img src="assets/mercedes-front-dark.jpg" alt="Mercedes-Benz front view">
+         <img src="assets/mercedes-front-dark.jpg" alt="Mercedes-Benz front view">
         </div>
         <div class="fleet-body">
           <div class="f-model">Return Transfer</div>
@@ -1973,7 +2009,7 @@ footer {
       <div class="ft-col">
         <h5>Contact</h5>
         <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 2 2 0 012.28 2.2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-.73a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><span>09078771256</span></div>
-        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>hello@raremiles.com</span></div>
+        <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@raremiles.net</span></div>
         <div class="ct-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Lagos, Nigeria</span></div>
       </div>
     </div>
